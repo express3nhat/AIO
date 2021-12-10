@@ -1,0 +1,155 @@
+<style>
+:root {
+	--parent-height-1: 5vh;
+	--parent-height-menu: 1vh;
+}
+		
+* {touch-action: manipulation;}
+		
+/* disable pull to refresh, keeps glow effects */
+html, body {
+	font-family: Arial;
+	padding: 0px;
+	margin: 0px;
+	overscroll-behavior-y: contain; 
+}
+  
+body {
+	overflow: hidden;
+	/* Không cho bôi đen lựa chọn chữ */
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+#QuangCao {
+	position: absolute;
+    	top:0px;
+	z-index: 0;
+	visibility:hidden;
+	background-color: blue;
+	width: 100vw;
+    	height: 100vh;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+#HuongDan {
+	position: absolute;
+    	top:0px;
+	z-index: 0;
+	visibility:hidden;
+	background-color: green;
+	width: 100vw;
+    	height: 100vh;
+}
+
+#container_loader {
+	position: absolute;
+    top:0px;
+	z-index: 0;
+	visibility:hidden;
+}
+
+.main_loader {
+    width: 100vw;
+    height: 100vh;
+    /*background: #2185C5;*/
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+
+
+}
+
+.loader{
+    width: auto;
+    height: auto;
+    background: white;
+    display: inline-block;
+    padding: 10px;
+
+    
+    border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid blue;
+  border-bottom: 16px solid blue;
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+
+.navbar {
+ 	overflow: hidden;
+  	background-color: #333;
+  	position: fixed;
+  	top: 0;
+  	width: 100%;
+	z-index:-1;
+}
+
+.navbar a {
+  	float: left;
+  	display: block;
+  	color: #f2f2f2;
+  	text-align: center;
+  	padding: 1vh 1vh;
+  	text-decoration: none;
+  	font-size: 3vh;
+}
+
+/*
+.navbar a:hover {
+ 	background: #ddd;
+  	color: black;
+}
+*/
+.overlay {
+	/*position: absolute;
+  	top: calc(var(--parent-height-menu) * 5);*/
+	margin-top: 5vh;
+	width: 100vw;
+	width: calc(var(--vw, 1vw) * 100);
+	height: 95vh;
+	/*height: calc(var(--vh, 1vh) * 95);*/
+}
+
+.iFrame_content {
+	width: 100%;
+	height: 100%;
+	/*
+	width: 100vw;
+	width: calc(var(--vw, 1vw) * 100);
+	height: 95vh;
+	height: calc(var(--vh, 1vh) * 95);
+	*/
+}
+
+
+
+	
+</style>
