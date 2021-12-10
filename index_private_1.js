@@ -1,8 +1,6 @@
-//var exec = "https://script.google.com/macros/s/AKfycbw8MfEDiLd4GRkWVHDxaiqZlmKSbhDOHpcGX2Xc0FpanBUtxMY/exec"; //NHATTRIEXPRESS
 
-var exec = "https://script.google.com/macros/s/AKfycbxDqpPdp4xys-zmMOC9NAeIOQNrItdWB8v3C1kf/exec"; //copy NHATTRIEXPRESS
 
-//var exec = "https://script.google.com/macros/s/AKfycbzICEjaEj0fw5tXxy-DeEkGGaXe0FOVR5GZ8MqDSg/exec"; Nhattri_AIO_Program
+var exec = "https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec"; //EXPRESS3NHAT
 
     window.addEventListener("load",function() {
 	
@@ -22,22 +20,10 @@ var exec = "https://script.google.com/macros/s/AKfycbxDqpPdp4xys-zmMOC9NAeIOQNrI
 	} else {
 	   str = "?embedIframe";
 	}	
-	
-	    
-	    //document.getElementById("myFrame").src = "https://script.google.com/macros/s/AKfycby7xOajlwfyrlDp0vR-3mxXC5O95s5uPbh3cz8C/exec" + str;
+
 	    var ifr = document.getElementById("myFrame");
-	    //ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbw8MfEDiLd4GRkWVHDxaiqZlmKSbhDOHpcGX2Xc0FpanBUtxMY/exec" + str); 
 	    
-		//alert(document.getElementById("myFrame").localStorage.getItem("QQQ"));
-      
-      //ifr.src = "https://script.google.com/macros/s/AKfycbw8MfEDiLd4GRkWVHDxaiqZlmKSbhDOHpcGX2Xc0FpanBUtxMY/exec" + str;
-      
-	    
-	    //ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbw8MfEDiLd4GRkWVHDxaiqZlmKSbhDOHpcGX2Xc0FpanBUtxMY/exec" + str);
-	    
-	     //ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbxDqpPdp4xys-zmMOC9NAeIOQNrItdWB8v3C1kf/exec" + str);
-	    
-	    ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbxXvHariCpq6wHlSGTpm4yntoM9qLDt4O71RaGO/exec" + str);
+	    ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec" + str);
         });
 
 
