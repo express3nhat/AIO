@@ -66,7 +66,7 @@ window.addEventListener("orientationchange", function(event) {
 		QC.style.visibility = "hidden";
 		HD.style.visibility = "hidden";
 		
-		setTimeout(function(){ ifr.style.display = "block"; }, 1000);
+		//setTimeout(function(){ ifr.style.display = "block"; }, 1000);
 		
 		//document.getElementById("myFrame").style.transform = "rotate(0deg)";
 	}
