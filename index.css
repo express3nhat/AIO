@@ -156,6 +156,7 @@ body {
             /*z-index: 0;*/
             /*visibility:hidden;*/
 		width: 100%;
+	height: 100vh;
          }
 
          .main_gioithieu {
@@ -164,7 +165,7 @@ body {
             /*background: #2185C5;*/
             display: table-cell;
             text-align: center;
-            vertical-align: center;
+            vertical-align: middle;
             /*vertical-align: middle;*/
          }
 
