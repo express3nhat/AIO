@@ -239,7 +239,9 @@ max-width: 100%;
             font-size: 5vw;
 	text-align: justify;
 	color: blue;
-	padding-bottom: 5vw;
+	padding-bottom: 2vw;
+	font-weight: bold;
+	font-style: italic;
 	
 
 }
@@ -248,7 +250,7 @@ max-width: 100%;
 
             font-size: 5vw;
 	text-align: justify;
-	padding: 5vw
+	padding: 1.5vw
 
 }
 
