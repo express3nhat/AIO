@@ -149,7 +149,79 @@ body {
 	*/
 }
 
+.container_gioithieu {
+            /*display: var(--display-data);*/
+            /*position: absolute;
+            top:0;*/
+            /*z-index: 0;*/
+            /*visibility:hidden;*/
+         }
 
+         .main_gioithieu {
+            width: 100vw;
+            /*height: 100vh;*/
+            /*background: #2185C5;*/
+            display: table-cell;
+            text-align: center;
+            vertical-align: top;
+            /*vertical-align: middle;*/
+         }
+
+         .data_gioithieu {
+            /*width: auto;*/
+            width: 90%;
+            height: auto;
+            /*background: white;*/
+            /*background: rgb(255, 0, 0, 0.3);*/
+            
+            display: inline-block;
+            /*border-style: solid;*/
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            margin: 2vh 0px;
+            
+         }
+
+
+.header_gioithieu {
+            width: 100%;
+            /*background-color: #ffb3b3;*/
+            display: flex;
+         }
+         
+         
+         .header_c1 {
+            flex: 1;
+            /*border-right-style: ridge;*/
+            /*line-height:1.2;*/
+            /*background-color: #ffb3b3;*/
+            text-align: center;
+            font-size: 1.8vh;
+            
+         }
+
+.noidung_gioithieu {
+            width: 100%;
+            /*background-color: #ffb3b3;*/
+            display: flex;
+         }
+         
+         .noidung_c1 {
+            flex: 1;
+            /*border-right-style: ridge;*/
+            /*line-height:1.2;*/
+            /*background-color: #ffb3b3;*/
+            text-align: center;
+         }
+         
+         .noidung_c2 {
+            flex: 2;
+            /*border-right-style: ridge;*/
+            /*line-height:1.2;*/
+            /*background-color: #ffb3b3;*/
+            text-align: left;
+            font-size: 1.8vh;
+            
+         }
 
 	
 </style>
