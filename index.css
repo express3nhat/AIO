@@ -234,11 +234,22 @@ max-width: 100%;
             
          }
 
-.noidung_c2_1 .noidung_c2_2 {
+.noidung_c2_1 {
 
             font-size: 5vw;
 	text-align: justify;
-  text-justify: inter-word;
+	color: blue;
+	padding-bottom: 5vw;
+	
+
+}
+
+.noidung_c2_2  {
+
+            font-size: 5vw;
+	text-align: justify;
+	padding: 5vw
+
 }
 
 .noidung_c3 {
