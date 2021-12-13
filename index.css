@@ -49,7 +49,7 @@ body {
     	top:0px;
 	z-index: 0;
 	visibility:hidden;
-	background-color: green;
+	//background-color: green;
 	width: 100vw;
     	height: 100vh;
 }
@@ -155,10 +155,11 @@ body {
             top:0;*/
             /*z-index: 0;*/
             /*visibility:hidden;*/
+		width: 100%;
          }
 
          .main_gioithieu {
-            width: 100vw;
+            width: 100%;
             /*height: 100vh;*/
             /*background: #2185C5;*/
             display: table-cell;
@@ -169,7 +170,7 @@ body {
 
          .data_gioithieu {
             /*width: auto;*/
-            width: 90%;
+            width: 96%;
             height: auto;
             /*background: white;*/
             /*background: rgb(255, 0, 0, 0.3);*/
