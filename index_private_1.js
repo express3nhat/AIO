@@ -51,7 +51,7 @@ window.addEventListener("orientationchange", function(event) {
 		//alert("the orientation of the device is now " + event.target.screen.orientation.angle);
 		QC.style.visibility = "visible";
 		HD.style.visibility = "hidden";
-		//ifr.style.display = "none";
+		document.getElementById("myFrame").style.display = "none";
 		//document.getElementById("myFrame").style.transform = "rotate(90deg)";
 	} 
 	
@@ -59,14 +59,14 @@ window.addEventListener("orientationchange", function(event) {
 		//alert("the orientation of the device is now " + event.target.screen.orientation.angle);
 		HD.style.visibility = "visible";
 		QC.style.visibility = "hidden";
-		//ifr.style.display = "none";
+		document.getElementById("myFrame").style.display = "none";
 		//document.getElementById("myFrame").style.transform = "rotate(270deg)";
 	}
 	if (event.target.screen.orientation.angle==0) {
 		QC.style.visibility = "hidden";
 		HD.style.visibility = "hidden";
 		
-		//setTimeout(function(){ ifr.style.display = "block"; }, 1000);
+		setTimeout(function(){ document.getElementById("myFrame").style.display = "block"; }, 1000);
 		
 		//document.getElementById("myFrame").style.transform = "rotate(0deg)";
 	}
