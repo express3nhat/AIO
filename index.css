@@ -227,14 +227,17 @@ max-width: 100%;
             /*border-right-style: ridge;*/
             /*line-height:1.2;*/
             /*background-color: #ffb3b3;*/
-            text-align: left;
+
             /*font-size: 1.8vh;*/
+		 
             
          }
 
 .noidung_c2_1 .noidung_c2_2 {
-	text-align: left;
+
             font-size: 5vw;
+	text-align: justify;
+  text-justify: inter-word;
 }
 
 .noidung_c3 {
