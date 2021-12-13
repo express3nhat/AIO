@@ -2,8 +2,12 @@
 
 var exec = "https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec"; //EXPRESS3NHAT
 
+var w;
+
     window.addEventListener("load",function() {
 	
+	w = window.innerWidth;    
+	    
 	document.getElementById("container_loader").style.visibility = "visible"; 
 	    
 	AddNewStyleRule (".navbar a:hover", "{background: #ddd; color: black;}");
@@ -22,6 +26,8 @@ var exec = "https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MR
 	}	
 
 	    var ifr = document.getElementById("myFrame");
+	    
+	    ifr.style.width = w;
 	    
 	    ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec" + str);
         });
