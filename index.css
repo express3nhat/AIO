@@ -201,10 +201,7 @@ body {
             
          }
 
-.noidung_qrcode {
-max-width: 100%;
-  margin: 0.8mm;
-}
+
 
 .noidung_gioithieu {
             width: 100%;
@@ -219,14 +216,34 @@ max-width: 100%;
             /*background-color: #ffb3b3;*/
             text-align: center;
          }
+
+.noidung_qrcode {
+max-width: 100%;
+  margin: 0.8mm;
+}
          
          .noidung_c2 {
-            flex: 2;
+            flex: 1;
             /*border-right-style: ridge;*/
             /*line-height:1.2;*/
             /*background-color: #ffb3b3;*/
             text-align: left;
-            font-size: 1.8vh;
+            /*font-size: 1.8vh;*/
+            
+         }
+
+.noidung_c2_1 .noidung_c2_2 {
+	text-align: left;
+            font-size: 3vw;
+}
+
+.noidung_c3 {
+            flex: 1;
+            /*border-right-style: ridge;*/
+            /*line-height:1.2;*/
+            /*background-color: #ffb3b3;*/
+            text-align: center;
+
             
          }
 
