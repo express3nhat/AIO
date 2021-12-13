@@ -49,7 +49,7 @@ body {
     	top:0px;
 	z-index: 0;
 	visibility:hidden;
-	background-color: rgb(153, 204, 255);
+	background-color: orange;
 	width: 100vw;
     	height: 100vh;
 }
@@ -200,6 +200,11 @@ body {
             font-weight: bold;
             
          }
+
+.noidung_qrcode {
+max-width: 100%;
+  margin: 0.8mm;
+}
 
 .noidung_gioithieu {
             width: 100%;
