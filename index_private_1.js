@@ -2,11 +2,11 @@
 
 var exec = "https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec"; //EXPRESS3NHAT
 
-var w;
+//var w;
 
     window.addEventListener("load",function() {
 	
-	w = window.innerWidth;    
+	//w = window.innerWidth;    
 	    
 	document.getElementById("container_loader").style.visibility = "visible"; 
 	    
@@ -27,7 +27,7 @@ var w;
 
 	    var ifr = document.getElementById("myFrame");
 	    
-	    ifr.style.width = w;
+	    //ifr.style.width = w;
 	    
 	    ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec" + str);
         });
@@ -51,22 +51,22 @@ window.addEventListener("orientationchange", function(event) {
 		//alert("the orientation of the device is now " + event.target.screen.orientation.angle);
 		QC.style.visibility = "visible";
 		HD.style.visibility = "hidden";
-		document.getElementById("myFrame").style.display = "none";
-		document.getElementById("myFrame").style.transform = "rotate(90deg)";
+		//document.getElementById("myFrame").style.display = "none";
+		//document.getElementById("myFrame").style.transform = "rotate(90deg)";
 	} 
 	
 	if (event.target.screen.orientation.angle==270) {
 		//alert("the orientation of the device is now " + event.target.screen.orientation.angle);
 		HD.style.visibility = "visible";
 		QC.style.visibility = "hidden";
-		document.getElementById("myFrame").style.display = "none";
-		document.getElementById("myFrame").style.transform = "rotate(270deg)";
+		//document.getElementById("myFrame").style.display = "none";
+		//document.getElementById("myFrame").style.transform = "rotate(270deg)";
 	}
 	if (event.target.screen.orientation.angle==0) {
 		QC.style.visibility = "hidden";
 		HD.style.visibility = "hidden";
-		document.getElementById("myFrame").style.display = "block";
-		document.getElementById("myFrame").style.transform = "rotate(0deg)";
+		//document.getElementById("myFrame").style.display = "block";
+		//document.getElementById("myFrame").style.transform = "rotate(0deg)";
 	}
 });
 
