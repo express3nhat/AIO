@@ -1,6 +1,8 @@
 
 
-var exec = "https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec"; //EXPRESS3NHAT
+//var exec = "https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec"; //EXPRESS3NHAT
+
+var exec = "https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec"; //EXPRESS3NHAT_v1
 
 //var w;
 
@@ -29,7 +31,8 @@ var exec = "https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MR
 	    
 	    //ifr.style.width = w;
 	    
-	    ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec" + str);
+	    //ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec" + str); //EXPRESS3NHAT
+	    ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec" + str); //EXPRESS3NHAT_v1
         });
 
 
