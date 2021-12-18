@@ -32,7 +32,8 @@ var exec = "https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2maln
 	    //ifr.style.width = w;
 	    
 	    //ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec" + str); //EXPRESS3NHAT
-	    ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec" + str); //EXPRESS3NHAT_v1
+	    //ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec" + str); //EXPRESS3NHAT_v1
+	    ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec" + "?token=qwndjkgvbkdfvb");
         });
 
 
