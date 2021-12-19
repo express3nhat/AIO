@@ -1,15 +1,8 @@
-
-
-//var exec = "https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec"; //EXPRESS3NHAT
-
 var exec = "https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec"; //EXPRESS3NHAT_v1
 
-//var w;
+var script_url = "https://script.google.com/macros/s/AKfycbxQMu_FJCGmJGcKIjyBOs-Ul8f3txv9L_SbRqrUmTfaEgySqkw/exec"; //EXPRESS3NHAT_AUTH
 
-    window.addEventListener("load",function() {
-	
-	//w = window.innerWidth;    
-	    
+window.addEventListener("load",function() {
 	//document.getElementById("container_loader").style.visibility = "visible"; 
 	    
 	AddNewStyleRule (".navbar a:hover", "{background: #ddd; color: black;}");
@@ -17,38 +10,35 @@ var exec = "https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2maln
 	script_tag.setAttribute('src','index_general.js');
 	document.head.appendChild(script_tag);
 	    
-	    
-	    
-        var str = window.location.href;
+	var str = window.location.href;
 	var action = str.split("?")[1];
-	if (action){
+	if (action) {
 	   str = "?action=" + action;
 	} else {
 	   str = "?embedIframe";
 	}	
 
-	    var ifr = document.getElementById("myFrame");
-	    
-	    //ifr.style.width = w;
-	    
-	    //ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbyg0Nad76648wOF66A173iU1y3MRdt9VoOAYbtC/exec" + str); //EXPRESS3NHAT
-	    //ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec" + str); //EXPRESS3NHAT_v1
-	    ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec" + "?token=qwndjkgvbkdfvb");
-        });
+	var url = script_url+"?host=" + window.location.href;
+	var slag;
+	$.getJSON(url, function (json) {
+		slag = json.records.map(doc => Object.values(doc));
+		alert(slag[0][0]);
+    	});
+	
+	
+	var ifr = document.getElementById("myFrame");
 
-/*
-setTimeout(function(){ 
-	if (document.getElementById("container_loader").style.visibility == "visible") {
-		location.reload();
-	}
+	//ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec" + str); //EXPRESS3NHAT_v1
+	ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec" + "?token=qwndjkgvbkdfvb");
+});
 
-		     
-}, 3000);
-*/         
+
+//setTimeout(function(){ if (document.getElementById("container_loader").style.visibility == "visible") { location.reload(); } }, 3000);
+        
 
 //lắng nghe thông tin màn hình xoay
 window.addEventListener("orientationchange", function(event) {
-  //alert("the orientation of the device is now " + event.target.screen.orientation.angle);
+  	//alert("the orientation of the device is now " + event.target.screen.orientation.angle);
 	var QC = document.getElementById("QuangCao");
 	var HD = document.getElementById("HuongDan");
 	if (event.target.screen.orientation.angle==90) {
@@ -70,7 +60,7 @@ window.addEventListener("orientationchange", function(event) {
 		QC.style.visibility = "hidden";
 		HD.style.visibility = "hidden";
 		
-		setTimeout(function(){ document.getElementById("myFrame").style.display = "block"; }, 500);
+		//setTimeout(function(){ document.getElementById("myFrame").style.display = "block"; }, 500);
 		
 		//document.getElementById("myFrame").style.transform = "rotate(0deg)";
 	}
@@ -80,70 +70,58 @@ window.addEventListener("orientationchange", function(event) {
 window.addEventListener("storage", myFunction);
 
 function myFunction(event) {
-  var str = localStorage.getItem("mytime");
-  localStorage.removeItem("mytime");
+	var str = localStorage.getItem("mytime");
+  	localStorage.removeItem("mytime");
   
-//alert("3-1: " + str);
+	//alert("3-1: " + str);
 
-  if (str!=null) {	
-  var arr = str.split("|");
-	//alert(window.location.href + "    ---   " + arr[5]);
-	
-	
-  	if (arr[2] == "2") {
-    		//document.getElementById("myFrame").src = arr[2];
-    		if (arr[5] != window.location.href) {
-    		document.getElementById("myFrame").contentWindow.location.replace("https://24h.com.vn");
-    		} else {
-    			//set thông báo thành công về lại cho google page biết
-			//if (arr[3] == "1") {
-			document.getElementById("container_loader").style.visibility = "hidden";
-	    		localStorage.setItem('mytime', '1' + '|' + '2' + '|' + '2' + '|' + '2' + '|' + Date.now() + '|' + 'Check OK');
-	    		//alert("1 đã gửi 3");
-			//} else {
-			//	localStorage.removeItem("mytime");
-			//}
-    		}
-  	}
+  	if (str!=null) {	
+  		var arr = str.split("|");
+		//alert(window.location.href + "    ---   " + arr[5]);
+		if (arr[2] == "2") {
+    			//document.getElementById("myFrame").src = arr[2];
+    			if (arr[5] != window.location.href) {
+    				document.getElementById("myFrame").contentWindow.location.replace("https://24h.com.vn");
+    			} else {
+    				//set thông báo thành công về lại cho google page biết
+				//if (arr[3] == "1") {
+				document.getElementById("container_loader").style.visibility = "hidden";
+	    			localStorage.setItem('mytime', '1' + '|' + '2' + '|' + '2' + '|' + '2' + '|' + Date.now() + '|' + 'Check OK');
+	    			//alert("1 đã gửi 3");
+				//} else {
+				//	localStorage.removeItem("mytime");
+				//}
+    			}
+  		}
 	  
-	if (arr[2] == "1") {
-		document.getElementById("myFrame").contentWindow.location.replace(arr[5]);
-	}  
-  }
-	
-
+		if (arr[2] == "1") { document.getElementById("myFrame").contentWindow.location.replace(arr[5]);	}  
+  	}
 }
 
-function changeValue() {
-  localStorage.setItem("mytime", Date.now() + "|" + "p" + "|" + "giatri truyen tai day");
-}
+function changeValue() { localStorage.setItem("mytime", Date.now() + "|" + "p" + "|" + "giatri truyen tai day"); }
 
 function PlayVideo() {
-
-  var video = document.getElementById("myVideo");
-  var btn = document.getElementById("myBtn");
-  if (video.paused) {
-    video.play();
-    btn.innerHTML = "Pause";
-  } else {
-    video.pause();
-    btn.innerHTML = "Play";
-  }
+  	var video = document.getElementById("myVideo");
+  	var btn = document.getElementById("myBtn");
+  	if (video.paused) {
+    		video.play();
+    		btn.innerHTML = "Pause";
+  	} else {
+    		video.pause();
+    		btn.innerHTML = "Play";
+  	}
 }
 
 
 function AddNewStyleRule (rule,content) {
-            var styleTag = document.getElementById ("myStyle");
-
-                // the empty style sheet
-            var sheet = styleTag.sheet ? styleTag.sheet : styleTag.styleSheet;
+     	var styleTag = document.getElementById ("myStyle");
+	// the empty style sheet
+        var sheet = styleTag.sheet ? styleTag.sheet : styleTag.styleSheet;
             
-            if (sheet.insertRule) {   // all browsers, except IE before version 9
-                sheet.insertRule (rule + " " + content, 0);
-            }
-            else {  // Internet Explorer before version 9
-                if (sheet.addRule) {
-                    sheet.addRule (rule, content, 0);
-                }
-            }
+       	if (sheet.insertRule) {   // all browsers, except IE before version 9
+             	sheet.insertRule (rule + " " + content, 0);
         }
+        else {  // Internet Explorer before version 9
+            	if (sheet.addRule) { sheet.addRule (rule, content, 0); }
+        }
+}
