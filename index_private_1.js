@@ -36,7 +36,7 @@ var exec = "https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2maln
 	    ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec" + "?token=qwndjkgvbkdfvb");
         });
 
-
+/*
 setTimeout(function(){ 
 	if (document.getElementById("container_loader").style.visibility == "visible") {
 		location.reload();
@@ -44,7 +44,7 @@ setTimeout(function(){
 
 		     
 }, 3000);
-          
+*/         
 
 //lắng nghe thông tin màn hình xoay
 window.addEventListener("orientationchange", function(event) {
