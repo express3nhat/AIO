@@ -1,5 +1,3 @@
-var exec = "https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec"; //EXPRESS3NHAT_v1
-
 var script_url = "https://script.google.com/macros/s/AKfycbxQMu_FJCGmJGcKIjyBOs-Ul8f3txv9L_SbRqrUmTfaEgySqkw/exec"; //EXPRESS3NHAT_AUTH
 
 window.addEventListener("load",function() {
@@ -28,12 +26,7 @@ window.addEventListener("load",function() {
 		var ifr = document.getElementById("myFrame");
 		ifr.contentWindow.location.replace(slag[0][0] + str);
     	});
-	
-	
-	//var ifr = document.getElementById("myFrame");
 
-	//ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec" + str); //EXPRESS3NHAT_v1
-	//ifr.contentWindow.location.replace("https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2malnbQQrFx_ckUq/exec" + "?token=qwndjkgvbkdfvb");
 });
 
 
