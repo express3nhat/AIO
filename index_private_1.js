@@ -15,7 +15,8 @@ window.addEventListener("load",function() {
 	if (action) {
 	   str = "?action=" + action;
 	} else {
-	   str = "?embedIframe";
+	   //str = "?embedIframe";
+	   str = "";	
 	}	
 
 	var url = script_url+"?host=" + window.location.href;
