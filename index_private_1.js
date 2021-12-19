@@ -23,6 +23,7 @@ window.addEventListener("load",function() {
 	$.getJSON(url, function (json) {
 		slag = json.records.map(doc => Object.values(doc));
 		alert(slag[0][0]);
+		alert(str);
 		var ifr = document.getElementById("myFrame");
 		ifr.contentWindow.location.replace(slag[0][0] + str);
     	});
