@@ -10,7 +10,7 @@ var exec = "https://script.google.com/macros/s/AKfycbwzww1tzfUSoP2YSz26SCRa2maln
 	
 	//w = window.innerWidth;    
 	    
-	document.getElementById("container_loader").style.visibility = "visible"; 
+	//document.getElementById("container_loader").style.visibility = "visible"; 
 	    
 	AddNewStyleRule (".navbar a:hover", "{background: #ddd; color: black;}");
 	var script_tag = document.createElement('script');
