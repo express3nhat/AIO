@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, height=device-height, maximum-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+:root {
+	    --x-flex-direction: row;
+            --x-display-ads: flex;
+            --x-font-size: 1.4vw;
+	    
+
+	    --height_detail: 100px;
+	    --height_iFr_IconP: 100px;
+	    --width_iFr_IconP: 100px;
+
+	    --font_size_IconP1: 2.6vw;
+	    --font_size_IconP0: 1.2vw;
+	    --width_IconP: 25%;
+	    --width_IconP_Khung: 80%;
+            --font_size_IconP2: 1vw;
+
+
+	    /*--background_color_2: rgba(255, 255, 255, 1);*/
+
+		
+       }
+         
+* {touch-action: manipulation;}
+
+* {box-sizing: border-box;}
+
+html, body {
+            /*font-family: Arial;*/
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            overscroll-behavior-y: contain; 
+         }
+
+body {
+            
+	
+	/*overflow: hidden;*/
+    
+            /* Không cho bôi đen lựa chọn chữ */
+            -webkit-touch-callout: none; /* iOS Safari */
+               -webkit-user-select: none; /* Safari */
+                  -khtml-user-select: none; /* Konqueror HTML */
+                     -moz-user-select: none; /* Firefox */
+                        -ms-user-select: none; /* Internet Explorer/Edge */
+                           user-select: none; /* Non-prefixed version, currently
+                                               supported by Chrome and Opera */
+         }
+
+
+.navbar {
+  overflow: hidden;
+  /*background-color: #333;*/
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: var(--x-flex-direction);	/*row;*/
+  font-size: 30px;
+  text-align: center;
+
+}
+
+.flex-item-left {
+  background-color: #f1f1f1;
+  padding: 10px;
+  flex: 2;
+  display: var(--x-display-ads);
+}
+
+.flex-item-right {
+  background-color: #f1f1f1;
+  padding: 10px;
+  flex: 2;
+  display: var(--x-display-ads);
+
+}
+
+.flex-item-center {
+  /*background-color: dodgerblue;*/
+  padding: 0.1vh 0.5vw 0.1vh 0.5vw;
+  flex: 3;
+  
+}
+
+.container_data {
+  /*border-style: solid;*/
+  display: flex;
+ 
+}
+
+#container_data_1 {
+  border: solid dodgerblue;
+
+}
+
+
+#detail1 {
+    overflow-y: scroll; 
+    margin-top:1vh;
+    display: flex;
+    text-align: center;
+    height: var(--height_detail);
+}
+
+#IconP01, #IconP02, #IconP03, #IconP04 {
+    overflow: none; 
+    /*margin-top:1vh;*/
+    display: none;
+    text-align: center;
+    height: var(--height_detail);
+}
+
+.IconP {
+	width: var(--width_IconP);  
+	/*border:solid 0.5px; */
+	height: auto;
+        padding: 5px;
+	margin-top: 2vh;
+}
+
+.IconP_Khung {
+	display: inline-block;
+        border-style: solid;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	height: 100%;
+        width: var(--width_IconP_Khung);
+}
+
+
+.Item1 {flex:1;}
+
+.Item2 {flex: 12;}
+
+.Item3 {flex: 1;}
+
+#header {
+	background-color: dodgerblue;
+	overflow: hidden; 
+}
+
+
+
+.IconP2 {
+	 font-size: var(--font_size_IconP2);
+}
+
+
+
+.iFr_IconP {
+	height: var(--height_iFr_IconP);
+	width: var(--width_iFr_IconP);
+	border: none;
+}
+
+</style>
+</head>
+<body>
+
+
+<div class="navbar">
+	<div class="flex-container">
+  		<div class="flex-item-left">Quảng cáo ở đây</div>
+  		
+		<div class="flex-item-center">
+  			<div class="container_data" id="header">
+    				<div class="Item1">
+					<span class="fa-stack" style="font-size: var(--font_size_IconP0)">
+  						<i class="fa fa-circle fa-stack-2x"  style="color:white;"></i>
+  						<i class="fa fa-tasks fa-stack-1x"></i>
+					</span>
+				</div>
+				<div class="Item2">        			
+					
+
+				</div>
+				<div class="Item3" id="Item3">        			
+					<span class="fa-stack" style="font-size: var(--font_size_IconP0)">
+  						<i class="fa fa-circle fa-stack-2x"  style="color:white;"></i>
+  						<i class="fa fa-reply fa-stack-1x"></i>
+					</span>
+					
+				</div>
+    			</div>
+			
+    			<div id="container_data_1">
+				<div id="detail1">
+					<div class="flex-item-center" style="display: flex;  flex-flow: row wrap; align-self: flex-start;">
+						<div class="IconP" id="IconP01_Detail">
+							<div class="IconP_Khung">
+								<span class="fa-stack" style="font-size: var(--font_size_IconP1)">
+  									<i class="fa fa-circle fa-stack-2x" style="color: blue;"></i>
+  									<i class="fa fa-sitemap fa-stack-1x fa-inverse"></i>
+								</span>
+								<div class="IconP2">Quản lý</div>
+								<div class="IconP2">đơn hàng</div>
+							</div>
+						</div>
+						<div class="IconP" id="IconP02_Detail">
+							<div class="IconP_Khung">
+								<span class="fa-stack" style="font-size: var(--font_size_IconP1)">
+  									<i class="fa fa-circle fa-stack-2x" style="color: #ff6666;"></i>
+  									<i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+								</span>
+								<div class="IconP2">Tạo mới</div>
+								<div class="IconP2">đơn hàng</div>
+							</div>
+						</div>
+						<div class="IconP" id="IconP03_Detail">
+							<div class="IconP_Khung">
+								<span class="fa-stack" style="font-size: var(--font_size_IconP1)">
+  									<i class="fa fa-circle fa-stack-2x" style="color: #66ff66;"></i>
+  									<i class="fa fa-truck fa-stack-1x fa-inverse"></i>
+								</span>
+								<div class="IconP2">Tạo bảng</div>
+								<div class="IconP2">cước</div>
+							</div>
+						</div>
+						<div class="IconP" id="IconP04_Detail">
+							<div class="IconP_Khung">
+								<span class="fa-stack" style="font-size: var(--font_size_IconP1)">
+  									<i class="fa fa-circle fa-stack-2x" style="color: #ff9933;"></i>
+  									<i class="fa fa-calendar-check-o fa-stack-1x fa-inverse"></i>
+								</span>
+								<div class="IconP2">Xác nhận</div>
+								<div class="IconP2">đơn hàng</div>
+							</div>
+						</div>
+						<div class="IconP">
+							<div class="IconP_Khung">
+								<span class="fa-stack" style="font-size: var(--font_size_IconP1)">
+  									<i class="fa fa-circle fa-stack-2x" style="color: #cccc00;"></i>
+  									<i class="fa fa-question fa-stack-1x fa-inverse"></i>
+								</span>
+								<div class="IconP2">Hướng dẫn</div>
+								<div class="IconP2">sử dụng</div>
+							</div>
+						</div>
+						<div class="IconP">
+							<div class="IconP_Khung">
+								<span class="fa-stack" style="font-size: var(--font_size_IconP1)">
+  									<i class="fa fa-circle fa-stack-2x" style="color: #009933;"></i>
+  									<i class="fa fa-ellipsis-h fa-stack-1x fa-inverse"></i>
+								</span>
+								<div class="IconP2">New</div>
+								<div class="IconP2">Waiting...</div>
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+				
+				<div id="IconP01" style="width: 100%">
+					<div class="flex-item-center" style="display: flex;  flex-flow: row wrap; align-self: flex-start; width: 100%">
+						<iframe class="iFr_IconP" id="iFr_IconP01" src="https://www.24h.com.vn/" allow="camera *;microphone *" style="width: 100%"></iframe>
+					</div>
+				</div>
+				<div id="IconP02" style="width: 100%">
+					<div class="flex-item-center" style="display: flex;  flex-flow: row wrap; align-self: flex-start; width: 100%">
+						<iframe class="iFr_IconP" id="iFr_IconP02" src="https://express3nhat.github.io/AIO/canhGiuaDivChild.html" allow="camera *;microphone *" style="width: 100%"></iframe>
+					</div>
+				</div>
+				<div id="IconP03">
+					<div class="flex-item-center" style="display: flex;  flex-flow: row wrap; align-self: flex-start;">
+						<iframe class="iFr_IconP" id="iFr_IconP03" src="https://vnexpress.net/" allow="camera *;microphone *"></iframe>
+					</div>
+				</div>
+				<div id="IconP04">
+					<div class="flex-item-center" style="display: flex;  flex-flow: row wrap; align-self: flex-start;">
+						<iframe class="iFr_IconP" id="iFr_IconP04" src="https://nld.com.vn/" allow="camera *;microphone *"></iframe>
+					</div>
+				</div>	
+        		</div>
+			
+			
+				
+  		</div>
+
+    		<div class="flex-item-right">Quảng cáo ở đây</div>
+	</div>
+</div>
+
+<script>
+        function EID(NameID) {return document.getElementById(NameID);}
+        
+        var root = document.querySelector(':root');
+
+	function bindEvent(element, eventName, eventHandler) {
+            if (element.addEventListener){
+                element.addEventListener(eventName, eventHandler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, eventHandler);
+            }
+        }
+
+	//DISABLE RIGHT-CLICK
+        window.addEventListener("contextmenu", function(e){
+            e.preventDefault();
+        }, false);
+
+        //DISABLE “VIEW SOURCE” SHORTCUT KEY
+ 
+        document.addEventListener("keydown", function(e){
+        // USE THIS TO DISABLE CONTROL AND ALL FUNCTION KEYS
+        // if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+        // THIS WILL ONLY DISABLE CONTROL AND F12
+            if (e.ctrlKey || e.keyCode==123) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
+        });
+
+
+        function preventPullToRefresh(element) {
+           var prevent = false;
+           document.querySelector(element).addEventListener('touchstart', function(e){
+              if (e.touches.length !== 1) { 
+                 return; 
+              }
+                
+              var scrollY = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+              prevent = (scrollY === 0);
+		   });
+
+		   document.querySelector(element).addEventListener('touchmove', function(e){
+              if (prevent) {
+                 prevent = false;
+                 e.preventDefault();
+              }
+		   });
+        }
+
+      document.addEventListener("touchstart", function(e){
+         if(e.touches.length > 1){
+            //the event is multi-touch
+            //you can then prevent the behavior
+            e.preventDefault();
+         } 
+      },{passive: false});
+  
+      preventPullToRefresh('html');
+	
+	var Windows_current="BEGIN";
+
+	window.addEventListener('resize', () => {
+         // We execute the same script as before
+
+	AutoResize();
+	
+
+
+      });
+	
+	AutoResize();
+	
+	function AutoResize() {
+
+			var h = window.innerHeight;
+	 		var w = window.innerWidth;
+	
+         		//document.documentElement.style.setProperty('--vh', `${vh}px`);
+			var x1, x2, x3;
+			var arr = ['--x-flex-direction','--x-display-ads','--x-font-size','--font_size_IconP0','--font_size_IconP1','--width_IconP','--width_IconP_Khung','--font_size_IconP2']
+			var x =['row','flex','1.2vw','1.2vw','2.6vw','25%','80%','1vw'];
+		
+			if (h>w) {
+				x[0] = 'column';
+           			x[1] = 'none';
+           			x[2] = '3vw';
+				x[3] = '3.4vw';
+				x[4] = '15vw';
+				x[5] = '50%';
+				x[6] = '80%';
+				x[7] = '6vw';
+			} 
+		
+			for (i=0;i<x.length;i++) {
+				root.style.setProperty(arr[i], x[i]);
+			}
+
+		
+
+
+
+			var te = EID('container_data_1').offsetTop;
+			var wi = EID('container_data_1').offsetWidth;
+
+
+
+                	var he = EID('header').offsetHeight;	
+
+			root.style.setProperty("--height_detail", (h - te -2*he/5) + "px");
+			root.style.setProperty("--height_iFr_IconP", (h - te - 2*he/5) + "px");
+			root.style.setProperty("--width_iFr_IconP", (wi-12) + "px");
+
+
+	}
+	
+	
+	bindEvent(EID('IconP01_Detail'), 'click', function (e) {
+	    var str = e.currentTarget.id;
+	    ShowIconP(str);
+        }); 
+	bindEvent(EID('IconP02_Detail'), 'click', function (e) {
+	    var str = e.currentTarget.id;
+	    ShowIconP(str);
+        });
+	bindEvent(EID('IconP03_Detail'), 'click', function (e) {
+	    var str = e.currentTarget.id;
+	    ShowIconP(str);
+        });
+	bindEvent(EID('IconP04_Detail'), 'click', function (e) {
+	    var str = e.currentTarget.id;
+	    ShowIconP(str);
+        });
+	
+	function ShowIconP(str) {
+
+		Windows_current = str.substring(0,str.length-7);
+		EID(Windows_current).style.display = "flex";
+	    	EID("detail1").style.display = "none";
+	}
+
+	bindEvent(EID('Item3'), 'click', function (e) {
+	    Item3_click();
+        }); 
+
+	function Item3_click() {
+		if (Windows_current != "detail1") {
+	    			EID("detail1").style.display = "flex";
+	    			EID(Windows_current).style.display = "none";
+	    			Windows_current = "detail1";
+
+		}
+
+	}
+
+	
+
+</script>
+
+
+</body>
+</html>
+
+
