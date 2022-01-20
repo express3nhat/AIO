@@ -1,0 +1,1657 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, height=device-height, maximum-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Libre Barcode 39' rel='stylesheet'>
+
+<style>
+:root {
+            --x_font_barcode: 'Libre Barcode 39';font-size: 20mm;
+	    --height_1: 4mm;
+            --height_2: calc(2.5*var(--height_1));
+	    --x_border_bottom_a: solid 0px;
+            --x_border_bottom_b: solid 0.5px;
+	    --x_font_a: bold 3mm sans-serif;
+	    --x_font_b: 3mm sans-serif;
+	    --x_font_c: italic 3mm sans-serif;
+	    --x_padding: 0.5mm;
+		
+
+	    --x-flex-direction: row;
+            --x-display-ads: flex;
+            --x-font-size: 1.4vw;
+	    --font_size_IconP0: 1.2vw;
+	    
+
+	    --display_Item2: flex;
+	    --display_Item3: none;
+	    --display_detail3: none;
+	    --display_detail2: block;
+	    --display_detail1: block;
+	    --display_Group_DCBH: none;
+	    --display_Group_DCVC: none;
+            --display_Group_DCND: none;
+	    --display_Group_VC_DC: none;
+	    --display_Group_VC_DC_1: none;
+	    --display_Group_VC_DC_1_1: none;
+	    --display_Group_VC_DC_1_2: none;
+	    --display_Group_VC_DC_1_3: none;
+	    --display_Group_VC_DC_2: none;
+	    --display_Group_VC_DC_2_1: none;
+	    --display_Group_VC_DC_2_2: none;
+	    --display_Group_VC_DC_2_3: none;
+	    --display_Group_VC_DC_3: none;
+	    --display_Group_VC_DC_3_1: none;
+	    --display_Group_VC_DC_3_2: none;
+	    --display_Group_VC_DC_3_3: none;
+
+	    --border_bottom_1: var(--x_border_bottom_a);
+	    --border_bottom_2: var(--x_border_bottom_b);
+	    --font_1: var(--x_font_a);
+	    --font_2: var(--x_font_b);
+	    --font_3: var(--x_font_c);
+	    --padding_1: var(--x_padding);
+            --background_color_1: rgba(0, 0, 102, 1);
+            --color_1: white;
+
+	    --background_color_2: rgba(255, 255, 255, 1);
+            --color_2: black;
+		
+       }
+         
+* {touch-action: manipulation;}
+
+* {box-sizing: border-box;}
+
+html, body {
+            /*font-family: Arial;*/
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            overscroll-behavior-y: contain; 
+         }
+
+body {
+            
+	
+	/*overflow: hidden;*/
+    
+            /* Không cho bôi đen lựa chọn chữ */
+            -webkit-touch-callout: none; /* iOS Safari */
+               -webkit-user-select: none; /* Safari */
+                  -khtml-user-select: none; /* Konqueror HTML */
+                     -moz-user-select: none; /* Firefox */
+                        -ms-user-select: none; /* Internet Explorer/Edge */
+                           user-select: none; /* Non-prefixed version, currently
+                                               supported by Chrome and Opera */
+         }
+
+
+.navbar {
+  overflow: hidden;
+  /*background-color: #333;*/
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: var(--x-flex-direction);	/*row;*/
+  font-size: 30px;
+  text-align: center;
+
+}
+
+.flex-item-left {
+  background-color: #f1f1f1;
+  padding: 10px;
+  flex: 3;
+  display: var(--x-display-ads);
+}
+
+.flex-item-right {
+  background-color: #f1f1f1;
+  padding: 10px;
+  flex: 3;
+  display: var(--x-display-ads);
+
+}
+
+.flex-item-center {
+  /*background-color: dodgerblue;*/
+  padding: 0.1vh 0.5vw 0.1vh 0.5vw;
+  flex: 4;
+  
+}
+
+.container_data {
+  /*border-style: solid;*/
+  display: flex;
+ 
+}
+
+.container_data_1 {
+  border-style: solid;
+
+}
+
+.Item1 {
+   flex:1;
+}
+
+.Item2 {
+  /*background-color: #f1f1f1;
+  padding: 10px;
+  */
+  flex: 12;
+  display: var(--display_Item2);
+}
+
+.Item3 {
+
+  flex: 12;
+  display: var(--display_Item3);
+  
+}
+
+.Item2_1, .Item2_2, .Item2_3, .Item2_4,
+.Item3_1, .Item3_2, .Item3_3, .Item3_4 {
+
+  flex: 1;
+}
+
+.level_0 {
+  font-size: var(--x-font-size);
+  align-self: flex-end;
+  flex:1;
+}
+
+.level_1 {
+  font-size: var(--x-font-size);
+  align-self: flex-end;
+  text-align: left;
+}
+
+.level_2 {
+
+  padding-left: 5%;
+
+	}
+.level_3 {
+		padding-left: 10%;
+	}
+
+input {
+            width: 100%;
+            font-size: var(--x-font-size);
+            
+         }
+
+.header {
+	background-color: #663300;
+	overflow: hidden; 
+    /*height: 9vh;*/
+}
+
+.detail1 {
+    display: var(--display_detail1);
+}
+
+.detail2 {
+	overflow-y: scroll; 
+	overflow-x: hidden;
+	margin-top:1vh;
+    display: var(--display_detail2);
+}
+
+.detail3 {
+
+    margin:1vh 0 1vh 0;
+   
+    display: var(--display_detail3);
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+
+.detail::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+
+.detail {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.cot01 {
+	flex:1.8;
+
+}
+.cot01a {
+	flex:1.8;
+	text-align: right;
+}
+
+
+.cot02 {
+	flex:1;
+}
+
+.cot02a {
+	flex:1;
+	text-align: left;
+}
+
+.cot03 {
+	flex:1;
+	text-align: center;  
+}
+
+.Group_tieude {
+	font-size: calc(1.3*var(--x-font-size));
+	font-weight: bold;
+	color: white;
+}
+
+.khungReport {
+	border:solid 0.5px; 
+        width: 91mm;
+	height:68mm; 
+	display: inline-block;
+
+}
+
+.khungReportChild {
+	display: flex;
+  	flex-direction: column;	/*row;*/
+  	text-align: center;
+}
+
+.ReportChild_1, .ReportChild_2, .ReportChild_3, .ReportChild_4, .ReportChild_5,
+.ReportChild_6, .ReportChild_7, .ReportChild_8, .ReportChild_9, .ReportChild_10,
+.ReportChild_11, .ReportChild_12 {
+	flex: 1;  
+	display: flex;
+  	flex-direction: row;
+	  
+}
+
+.ReportChild_1_1 {
+	flex: 9;
+	height: var(--height_1);
+	border-bottom: var(--border_bottom_1); 
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_1_2 {
+	flex: 2.4;
+	height: var(--height_1);
+	border-bottom: var(--border_bottom_1); 
+        font: var(--font_1);
+	padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_1_3 {
+	flex: 1.2;
+	height: var(--height_1);
+	border-bottom: var(--border_bottom_1); 
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+	background-color: var(--background_color_2);
+	color: var(--color_2);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_2_1 {
+	flex: 2.4;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_1);
+	color: var(--color_1);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_2_2 {
+	flex: 10.2;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_1);
+	color: var(--color_1); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_3_1 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_3_2 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_4_1 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2);
+	
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_4_2 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+        
+}
+
+.ReportChild_5_1 {
+	flex: 10.2;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_1);
+	color: var(--color_1);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_5_2 {
+	flex: 2.4;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_1);
+	color: var(--color_1); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+
+.ReportChild_6_1 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_6_2 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_7_1 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_7_2 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_8_1 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_8_2 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_9_1 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_2); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_10_1 {
+	flex: 1;
+	height: var(--height_2);
+        border-bottom: var(--border_bottom_2); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	
+}
+
+.ReportChild_10_1 > div{
+	position: relative;
+	top: 2mm;
+	font-family: 'Libre Barcode 39';font-size: 8.5mm; /*var(--x_font_barcode);*/
+	-ms-transform: scaleY(1.5); /* IE 9 */
+        transform: scaleY(1.5);
+}
+
+
+.ReportChild_11_1 {
+	flex: 20;
+
+	display: flex;
+  	flex-direction: row;
+
+	/*height: calc(3*var(--height_1));*/
+        border-bottom: var(--border_bottom_2); 
+	border-right: solid 0.5px;
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_11_2 {
+	flex: 100;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_2); 
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2); 
+
+}
+
+
+
+.ReportChild_11_1 > img {
+
+  max-width: 100%;
+  margin: 0.1mm;
+  
+}
+
+.ReportChild_11_2_1, .ReportChild_11_2_2,
+.ReportChild_11_2_3 {
+	flex: 1;  
+	display: flex;
+  	flex-direction: row;
+	  
+}
+
+.ReportChild_11_2_1_1 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_2); 
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_11_2_2_1 {
+	flex: 1;
+	height: calc(2*var(--height_1));
+        border-bottom: var(--border_bottom_2); 
+        font: var(--font_3);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_11_2_3_1 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.ReportChild_11_2_3_2 {
+	flex: 1;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.ReportChild_11_2_3_3 {
+	flex: 2;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_1);
+	color: var(--color_1);
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+
+.ReportChild_12_1 {
+	flex: 4;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_12_2 {
+	flex: 3;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_2);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_12_3 {
+	flex: 3;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ReportChild_12_4 {
+	flex: 3;
+	height: var(--height_1);
+        border-bottom: var(--border_bottom_1); 
+        font: var(--font_1);
+        padding: var(--padding_1) var(--padding_1) var(--padding_1) var(--padding_1);
+        background-color: var(--background_color_2);
+	color: var(--color_2); 
+
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+
+.button-1 {
+  background-color: #EA4C89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #F082AC;
+}
+
+#Group_DCBH {display: var(--display_Group_DCBH);}
+#Group_DCVC {display: var(--display_Group_DCVC);}
+#Group_DCND {display: var(--display_Group_DCND);}
+#Group_VC_DC {display: var(--display_Group_VC_DC);}
+#Group_VC_DC_1 {display: var(--display_Group_VC_DC_1);}
+#Group_VC_DC_1_1 {display: var(--display_Group_VC_DC_1_1);}
+#Group_VC_DC_1_2 {display: var(--display_Group_VC_DC_1_2);}
+#Group_VC_DC_1_3 {display: var(--display_Group_VC_DC_1_3);}
+#Group_VC_DC_2 {display: var(--display_Group_VC_DC_2);}
+#Group_VC_DC_2_1 {display: var(--display_Group_VC_DC_2_1);}
+#Group_VC_DC_2_2 {display: var(--display_Group_VC_DC_2_2);}
+#Group_VC_DC_2_3 {display: var(--display_Group_VC_DC_2_3);}
+#Group_VC_DC_3 {display: var(--display_Group_VC_DC_3);}
+#Group_VC_DC_3_1 {display: var(--display_Group_VC_DC_3_1);}
+#Group_VC_DC_3_2 {display: var(--display_Group_VC_DC_3_2);}
+#Group_VC_DC_3_3 {display: var(--display_Group_VC_DC_3_3);}
+
+/* Responsive layout - makes a one column-layout instead of two-column layout */
+/*
+@media (max-width: 600px) {
+  .flex-container {
+    flex-direction: column;
+  }
+  
+  .flex-item-left, .flex-item-right {
+    display: none;
+  }
+  
+  .level_1, .level2 {
+  font-size: 3.6vw;
+  }
+
+ input {
+   font-size: 3.6vw;
+ }
+}
+*/
+</style>
+</head>
+<body>
+
+
+<div class="navbar">
+	<div class="flex-container">
+  		
+  		<div class="flex-item-center">
+  			<div class="container_data header">
+    				<!--
+				<div class="Item1">
+					<span class="fa-stack" style="font-size: var(--font_size_IconP0)">
+  						<i class="fa fa-circle fa-stack-2x"  style="color:white;"></i>
+  						<i class="fa fa-tasks fa-stack-1x"></i>
+					</span>
+				</div>
+				-->
+				<div class="Item2">        			
+					
+					<div class="Item2_1">
+						<span class="fa-stack" style="font-size: var(--font_size_IconP0)">
+  							<i class="fa fa-circle fa-stack-2x"  style="color:white;"></i>
+  							<i class="fa fa-plus fa-stack-1x"></i>
+						</span>
+					</div>
+
+					<div class="Item2_2">
+						<span class="fa-stack" style="font-size: var(--font_size_IconP0)">
+  							<i class="fa fa-circle fa-stack-2x"  style="color:white;"></i>
+  							<i class="fa fa-refresh fa-stack-1x"></i>
+						</span>
+					</div>
+        				<div class="Item2_3" id="Item2_3">
+						<span class="fa-stack" style="font-size: var(--font_size_IconP0)">
+  							<i class="fa fa-circle fa-stack-2x"  style="color:white;"></i>
+  							<i class="fa fa-vcard-o fa-stack-1x"></i>
+						</span>
+					</div>
+					
+        				<div class="Item2_4">
+						<span class="fa-stack" style="font-size: var(--font_size_IconP0)">
+  							<i class="fa fa-circle fa-stack-2x"  style="color:white;"></i>
+  							<i class="fa fa-money fa-stack-1x"></i>
+						</span>
+					</div>
+				</div>
+				<div class="Item3">        			
+
+					<div class="Item3_1" id="Item3_1">
+						<span class="fa-stack" style="font-size: var(--font_size_IconP0)">
+  							<i class="fa fa-circle fa-stack-2x"  style="color:white;"></i>
+  							<i class="fa fa-reply fa-stack-1x"></i>
+						</span>
+					</div>
+					
+					<div class="Item3_2">
+						<span class="fa-stack" style="font-size: var(--font_size_IconP0)">
+  							<i class="fa fa-circle fa-stack-2x"  style="color:white;"></i>
+  							<i class="fa fa-print fa-stack-1x"></i>
+						</span>
+					</div>
+					
+					<div class="Item3_3">
+						<span class="fa-stack" style="font-size: var(--font_size_IconP0)">
+  							<i class="fa fa-circle fa-stack-2x"  style="color:white;"></i>
+  							<i class="fa fa-pencil-square-o fa-stack-1x"></i>
+						</span>
+					</div>
+
+					<div class="Item3_4">
+						<span class="fa-stack" style="font-size: var(--font_size_IconP0)">
+  							<i class="fa fa-circle fa-stack-2x"  style="color:white;"></i>
+  							<i class="fa fa-money fa-stack-1x"></i>
+						</span>
+					</div>
+				</div>
+    			</div>
+			<div class="container_data detail1">
+				<div class="flex-item-center" style="display: flex;">
+					<div class="level_1 cot01"><label for="NVC">Chọn nhà vận chuyển:</label></div>
+					<div class="cot02"><input list="NVCs" name="NVC" id="NVC"></div>
+  						<datalist id="NVCs">
+							<option value="3 nhất Express">
+  							<option value="Cty 1">
+  							<option value="Cty 2">
+  							<option value="Cty 3">
+  							<option value="Cty 4">
+						</datalist>
+				</div>
+			</div>
+			<div class="container_data detail1">
+				<div class="flex-item-center" style="display: flex;">
+					<div class="level_1 cot01"><label for="QGVC">Chọn Quốc gia Đi - Đến:</label></div>
+					<div class="cot02"><input list="QGVCs" name="QGVC" id="QGVC"></div>
+  						<datalist id="QGVCs">
+							<option value="VietNam - VietNam">
+  							<option value="VietNam - United States of America">
+						</datalist>
+				</div>
+			</div>
+			<div class="container_data detail1">
+				<div class="flex-item-center" style="display: flex;">
+					<div class="level_1 cot01"><label for="NDDH">Nhập nội dung của đơn hàng:</label></div>
+					<div class="cot02"><input name="NDDH" id="NDDH"></div>
+				</div>
+			</div>
+			<div class="container_data detail1">
+				<div class="flex-item-center" style="display: flex;">
+					<div class="level_1 cot01"><label for="CUOCCOD" class="level_2">Nhập Giá hàng hoá (COD):</label></div>
+  					<div class="cot02"><input name="CUOCCOD" id="CUOCCOD"></div>
+				</div>
+			</div>
+			<div class="container_data detail1">
+				<div class="flex-item-center" style="display: flex;">
+					<div class="level_1 cot01"><label for="CUOCVC">Giá vận chuyển</label></div>
+  					<div class="cot02"><input name="CUOCVC" id="CUOCVC" disabled></div>
+				</div>
+			</div>
+    			<div class="container_data_1">
+				<div class= "detail2" id="detail2">
+                		<div id="Group_DCBH_0" class="flex-item-center" style="display: flex; background: #009933; margin-top:1vh">
+    					<div class="level_1"><label class="Group_tieude">Địa chỉ người bán hàng</label></div>
+    				</div>
+                		<div id="Group_DCBH">
+                			<div class="flex-item-center" style="display: flex; background: #ccffdd">
+						<div class="level_1 cot01"><label for="Cuoc1_TT" class="level_2">Chọn Tỉnh thành:</label></div>
+						<div class="cot02"><input list="Cuoc1s_TT" name="Cuoc1_TT" id="Cuoc1_TT"></div>
+  							<datalist id="Cuoc1s_TT"></datalist>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #ccffdd">
+    						<div class="level_1 cot01"><label for="Cuoc1_QH" class="level_2">Chọn Thành/Quận/Huyện/TX:</label></div>
+						<div class="cot02"><input list="Cuoc1s_QH" name="Cuoc1_QH" id="Cuoc1_QH"></div>
+  							<datalist id="Cuoc1s_QH"></datalist>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #ccffdd">
+    						<div class="level_1 cot01"><label for="Cuoc1_PX" class="level_2">Chọn Phường - Xã - Thị trấn:</label></div>
+						<div class="cot02"><input list="Cuoc1s_PX" name="Cuoc1_PX" id="Cuoc1_PX"></div>
+  							<datalist id="Cuoc1s_PX"></datalist>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #ccffdd">
+    						<div class="level_1 cot01"><label for="Cuoc1_DP" class="level_2">Nhập tên đường:</label></div>
+						<div class="cot02"><input name="Cuoc1_DP" id="Cuoc1_DP"></div>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #ccffdd">
+    						<div class="level_1 cot01"><label for="Cuoc1_DC" class="level_2">Nhập số nhà:</label></div>
+						<div class="cot02"><input name="Cuoc1_DC" id="Cuoc1_DC"></div>
+    					</div>
+					<div class="flex-item-center" style="display: flex;  background: #ccffdd">
+    						<div class="level_1 cot01"><label for="Cuoc1_KV" class="level_2">Nhập Khu vực:</label></div>
+						<div class="cot02"><input name="Cuoc1_KV" id="Cuoc1_KV"></div>
+    					</div>
+				</div>
+				<div id="Group_DCVC_0"  class="flex-item-center" style="display: flex; background: #99cc00; margin-top:1vh">
+    					<div class="level_1"><label class="Group_tieude">Địa chỉ nhà vận chuyển</label></div>
+    				</div>
+                		
+				<div id="Group_DCVC">
+                			<div class="flex-item-center" style="display: flex; background: #f2ffcc">
+						<div class="level_1 cot01"><label for="Cuoc2_TT" class="level_2">Chọn Tỉnh thành:</label></div>
+						<div class="cot02"><input list="Cuoc2s_TT" name="Cuoc2_TT" id="Cuoc2_TT"></div>
+  						<datalist id="Cuoc2s_TT"></datalist>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #f2ffcc">
+    						<div class="level_1 cot01"><label for="Cuoc2_QH" class="level_2">Chọn Thành/Quận/Huyện/TX:</label></div>
+						<div class="cot02"><input list="Cuoc2s_QH" name="Cuoc2_QH" id="Cuoc2_QH"></div>
+  							<datalist id="Cuoc2s_QH"></datalist>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #f2ffcc">
+    						<div class="level_1 cot01"><label for="Cuoc2_PX" class="level_2">Chọn Phường - Xã - Thị trấn:</label></div>
+						<div class="cot02"><input list="Cuoc2s_PX" name="Cuoc2_PX" id="Cuoc2_PX"></div>
+  							<datalist id="Cuoc2s_PX"></datalist>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #f2ffcc">
+    						<div class="level_1 cot01"><label for="Cuoc2_DP" class="level_2">Nhập tên đường:</label></div>
+						<div class="cot02"><input name="Cuoc2_DP" id="Cuoc2_DP"></div>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #f2ffcc">
+    						<div class="level_1 cot01"><label for="Cuoc2_DC" class="level_2">Nhập số nhà:</label></div>
+						<div class="cot02"><input name="Cuoc2_DC" id="Cuoc2_DC"></div>
+    					</div>
+					<div class="flex-item-center" style="display: flex;  background: #f2ffcc">
+    						<div class="level_1 cot01"><label for="Cuoc2_KV" class="level_2">Nhập Khu vực:</label></div>
+						<div class="cot02"><input name="Cuoc2_KV" id="Cuoc2_KV"></div>
+    					</div>
+				</div>
+				
+				<div id="Group_DCND_0" class="flex-item-center" style="display: flex; background: #ff6600; margin-top:1vh">
+    					<div class="level_1"><label class="Group_tieude">Địa chỉ Nơi đến</label></div>
+    				</div>
+                		
+				<div id="Group_DCND">
+                			<div class="flex-item-center" style="display: flex; background: #ffe0cc">
+						<div class="level_1 cot01"><label for="Cuoc2_TT" class="level_2">Chọn Tỉnh thành:</label></div>
+						<div class="cot02"><input list="Cuoc2s_TT" name="Cuoc2_TT" id="Cuoc2_TT"></div>
+  							<datalist id="Cuoc2s_TT"></datalist>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #ffe0cc">
+    						<div class="level_1 cot01"><label for="Cuoc2_QH" class="level_2">Chọn Thành/Quận/Huyện/TX:</label></div>
+						<div class="cot02"><input list="Cuoc2s_QH" name="Cuoc2_QH" id="Cuoc2_QH"></div>
+  							<datalist id="Cuoc2s_QH"></datalist>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #ffe0cc">
+    						<div class="level_1 cot01"><label for="Cuoc2_PX" class="level_2">Chọn Phường - Xã - Thị trấn:</label></div>
+						<div class="cot02"><input list="Cuoc2s_PX" name="Cuoc2_PX" id="Cuoc2_PX"></div>
+  							<datalist id="Cuoc2s_PX"></datalist>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #ffe0cc">
+    						<div class="level_1 cot01"><label for="Cuoc2_DP" class="level_2">Nhập tên đường:</label></div>
+						<div class="cot02"><input name="Cuoc2_DP" id="Cuoc2_DP"></div>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #ffe0cc">
+    						<div class="level_1 cot01"><label for="Cuoc2_DC" class="level_2">Nhập số nhà:</label></div>
+						<div class="cot02"><input name="Cuoc2_DC" id="Cuoc2_DC"></div>
+    					</div>
+					<div class="flex-item-center" style="display: flex;  background: #ffe0cc">
+    						<div class="level_1 cot01"><label for="Cuoc2_KV" class="level_2">Nhập Khu vực:</label></div>
+						<div class="cot02"><input name="Cuoc2_KV" id="Cuoc2_KV"></div>
+    					</div>
+				</div>
+
+				<div class="flex-item-center" style="display: flex; background: #cc9900; margin-top:1vh">
+    					<div class="level_1"><label class="Group_tieude">Địa chỉ Người nhận</label></div>
+    				</div>
+                
+                		<div class="flex-item-center" style="display: flex; background: #fff2cc">
+					<div class="level_1 cot01"><label for="Cuoc2_TT" class="level_2">Chọn Tỉnh thành:</label></div>
+					<div class="cot02"><input list="Cuoc2s_TT" name="Cuoc2_TT" id="Cuoc2_TT"></div>
+  						<datalist id="Cuoc2s_TT"></datalist>
+    				</div>
+				<div class="flex-item-center" style="display: flex; background: #fff2cc">
+    					<div class="level_1 cot01"><label for="Cuoc2_QH" class="level_2">Chọn Thành/Quận/Huyện/TX:</label></div>
+					<div class="cot02"><input list="Cuoc2s_QH" name="Cuoc2_QH" id="Cuoc2_QH"></div>
+  						<datalist id="Cuoc2s_QH"></datalist>
+    				</div>
+				<div class="flex-item-center" style="display: flex; background: #fff2cc">
+    					<div class="level_1 cot01"><label for="Cuoc2_PX" class="level_2">Chọn Phường - Xã - Thị trấn:</label></div>
+					<div class="cot02"><input list="Cuoc2s_PX" name="Cuoc2_PX" id="Cuoc2_PX"></div>
+  						<datalist id="Cuoc2s_PX"></datalist>
+    				</div>
+				<div class="flex-item-center" style="display: flex; background: #fff2cc">
+    					<div class="level_1 cot01"><label for="Cuoc2_DP" class="level_2">Nhập tên đường:</label></div>
+					<div class="cot02"><input name="Cuoc2_DP" id="Cuoc2_DP"></div>
+    				</div>
+				<div class="flex-item-center" style="display: flex; background: #fff2cc">
+    					<div class="level_1 cot01"><label for="Cuoc2_DC" class="level_2">Nhập số nhà:</label></div>
+					<div class="cot02"><input name="Cuoc2_DC" id="Cuoc2_DC"></div>
+    				</div>
+				<div class="flex-item-center" style="display: flex;  background: #fff2cc">
+    					<div class="level_1 cot01"><label for="Cuoc2_KV" class="level_2">Nhập Khu vực:</label></div>
+					<div class="cot02"><input name="Cuoc2_KV" id="Cuoc2_KV"></div>
+    				</div>
+
+				<div class="flex-item-center" style="display: flex;  background: #cc33ff; margin-top:1vh">
+    					<div class="level_1"><label class="Group_tieude">Thông tin hàng hóa</label></div>
+    				</div>
+				<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    					<div class="level_1 cot01"><label for="KLTT" class="level_2">Khối lượng thực tế: (g)</label></div>
+					<div class="cot02"><input name="KLTT" id="KLTT"></div>
+    				</div>
+				<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    					<div class="level_1 cot01"><label for="CDTT" class="level_2">Chiều dài thực tế: (cm)</label></div>
+					<div class="cot02"><input name="CDTT" id="CDTT"></div>
+    				</div>
+				<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    					<div class="level_1 cot01"><label for="CRTT" class="level_2">Chiều rộng thực tế: (cm)</label></div>
+					<div class="cot02"><input name="CRTT" id="CRTT"></div>
+    				</div>
+				<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    					<div class="level_1 cot01"><label for="CCTT" class="level_2">Chiều cao thực tế: (cm)</label></div>
+					<div class="cot02"><input name="CCTT" id="CCTT"></div>
+    				</div>
+				<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    					<div class="level_1 cot01"><label for="HSQD" class="level_3">HS thể tích-khối lượng:</label></div>
+					<div class="cot02"><input name="HSQD" id="HSQD"></div>
+    				</div>
+				<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    					<div class="level_1 cot01"><label for="KLQD" class="level_3">Khối lượng quy đổi: (g)</label></div>
+					<div class="cot02"><input name="KLQD" id="KLQD"></div>
+    				</div>
+				<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    					<div class="level_1 cot01"><label for="KLQD" class="level_3">Khối lượng đã so sánh: (g)</label></div>
+					<div class="cot02"><input name="KLQD" id="KLQD"></div>
+    				</div>
+				
+				<div id="Group_VC_DC_0" class="flex-item-center" style="display: flex; background: #f2ccff; padding-top:1vh">
+    					<div class="level_0" style="background: #666699; padding:0.4vh"><label class="Group_tieude">Phần do đơn vị vận chuyển điều chỉnh</label></div>
+    				</div>
+				
+				<div id="Group_VC_DC">
+					<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    						<div class="level_1 cot01"><label for="KLGG" class="level_2">Nhập tay Khối lượng (tuỳ ý): (g)</label></div>
+						<div class="cot02"><input name="KLGG" id="KLGG"></div>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    						<div class="level_1 cot01a"><label class="level_2">Chọn theo thể tích</label></div>
+						<div class="cot02a"><input type="radio" id="KL1" name="Group_KL" value="KL1" checked></div>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    						<div class="level_1 cot01a"><label class="level_2">Chọn theo Khối lượng</label></div>
+						<div class="cot02a"><input type="radio" id="KL2" name="Group_KL" value="KL2"></div>
+    					</div>
+					<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    						<div class="level_1 cot01a"><label class="level_2">Chọn Khối lượng nhập tay</label></div>
+						<div class="cot02a"><input type="radio" id="KL3" name="Group_KL" value="KL3"></div>
+    					</div>
+				
+					<div id="Group_VC_DC_1_0" class="flex-item-center" style="display: flex; background: #f2ccff; padding-top:1vh">
+    						<div class="level_0"><label style="background: #666699; padding:0.4vh;" class="Group_tieude">Giai đoạn thu gom</label></div>
+    					</div>
+					<div id="Group_VC_DC_1">
+						<div class="flex-item-center" style="display: flex; background: #f2ccff; padding-top:1vh">
+    							<div class="level_1 cot01 "><label class="level_2" for="Cuoc1_CHK_TG">Sử dụng thu gom thoả thuận</label></div>
+							<div class="level_1 cot02a"><input type="checkbox" name="Cuoc1_CHK_TG" value="Cuoc1_CHK_TG"  id="Group_VC_DC_1_1c" onchange='DisplayChild(this);'></div>
+    						</div>
+						
+						<div id="Group_VC_DC_1_1">
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc1_TGTT"  class="level_3">Giờ thu gom thoả thuận: (h)</label></div>
+								<div class="cot02"><input name="Cuoc1_TGTT" id="Cuoc1_TGTT"></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc1_CKTGTT"  class="level_3">Chi phí khoảng: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc1_CKTGTT" id="Cuoc1_CKTGTT" disabled></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc1_CTGTT"  class="level_3">Chi phí thu gom thoả thuận: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc1_CTGTT" id="Cuoc1_CTGTT"></div>
+    							</div>
+						</div>
+					
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label class="level_2" for="Cuoc1_CHK_TGHT">Sử dụng thu gom hoả tốc</label></div>
+							<div class="level_1 cot02a"><input type="checkbox" name="Cuoc1_CHK_TGHT" value="Cuoc1_CHK_TGHT" id="Group_VC_DC_1_2c" onchange='DisplayChild(this);'></div>
+    						</div>
+						
+						<div id="Group_VC_DC_1_2">
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc1_TGHTTT"  class="level_3">Giờ thu gom hoả tốc: (phút)</label></div>
+								<div class="cot02"><input name="Cuoc1_TGHTTT" id="Cuoc1_TGHTTT"></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc1_CKTGHTTT"  class="level_3">Chi phí khoảng: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc1_CKTGHTTT" id="Cuoc1_CKTGHTTT" disabled></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc1_CTGHTTT"  class="level_3">Chi phí thu gom hoả tốc: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc1_CTGHTTT" id="Cuoc1_CTGHTTT"></div>
+    							</div>
+						</div>
+				
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label class="level_2" for="Cuoc1_CHK_LK">Sử dụng lưu kho</label></div>
+							<div class="level_1 cot02a"><input type="checkbox" name="Cuoc1_CHK_LK" value="Cuoc1_CHK_LK" id="Group_VC_DC_1_3c" onchange='DisplayChild(this);'></div>
+    						</div>
+
+						<div id="Group_VC_DC_1_3">
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc1_TGLK"  class="level_3">Thời gian lưu kho: (ngày)</label></div>
+								<div class="cot02"><input name="Cuoc1_TGLK" id="Cuoc1_TGLK"></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc1_CKTGLK"  class="level_3">Chi phí khoảng: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc1_CKTGLK" id="Cuoc1_CKTGLK" disabled></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc1_CTGLK"  class="level_3">Chi phí lưu kho: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc1_CTGLK" id="Cuoc1_CTGLK"></div>
+    							</div>
+						</div>
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label for="Cuoc1_CQD"  class="level_2">Cước quy định: (đ)</label></div>
+							<div class="cot02"><input name="Cuoc1_CQD" id="Cuoc1_CQD"></div>
+    						</div>
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label for="Cuoc1_CNH"  class="level_2">Cước nhóm: (đ)</label></div>
+							<div class="cot02"><input name="Cuoc1_CNH" id="Cuoc1_CNH"></div>
+    						</div>
+						
+					</div>
+
+
+					<div id="Group_VC_DC_2_0" class="flex-item-center" style="display: flex; background: #f2ccff; padding-top:1vh">
+    						<div class="level_0"><label style="background: #666699; padding:0.4vh" class="Group_tieude">Giai đoạn vận chuyển</label></div>
+    					</div>
+					<div id="Group_VC_DC_2">
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label class="level_2" for="Cuoc2_CHK_TG">Sử dụng vận chuyển thoả thuận</label></div>
+							<div class="level_1 cot02a"><input type="checkbox" name="Cuoc2_CHK_TG" value="Cuoc2_CHK_TG" id="Group_VC_DC_2_1c" onchange='DisplayChild(this);'></div>
+    						</div>
+
+						<div id="Group_VC_DC_2_1">
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc2_TGTT"  class="level_3">Giờ vận chuyển thoả thuận: (h)</label></div>
+								<div class="cot02"><input name="Cuoc2_TGTT" id="Cuoc2_TGTT"></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc2_CKTGTT"  class="level_3">Chi phí khoảng: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc2_CKTGTT" id="Cuoc2_CKTGTT" disabled></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc2_CTGTT"  class="level_3">Chi phí vận chuyển thoả thuận: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc2_CTGTT" id="Cuoc2_CTGTT"></div>
+    							</div>
+						</div>
+
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label class="level_2" for="Cuoc2_CHK_TGHT">Sử dụng vận chuyển hoả tốc</label></div>
+							<div class="level_1 cot02a"><input type="checkbox" name="Cuoc2_CHK_TGHT" value="Cuoc2_CHK_TGHT"  id="Group_VC_DC_2_2c" onchange='DisplayChild(this);'></div>
+    						</div>
+
+						<div id="Group_VC_DC_2_2">
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc2_TGHTTT"  class="level_3">Giờ vận chuyển hoả tốc: (phút)</label></div>
+								<div class="cot02"><input name="Cuoc2_TGHTTT" id="Cuoc2_TGHTTT"></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc2_CKTGHTTT"  class="level_3">Chi phí khoảng: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc2_CKTGHTTT" id="Cuoc2_CKTGHTTT" disabled></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc2_CTGHTTT"  class="level_3">Chi phí vận chuyển hoả tốc: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc2_CTGHTTT" id="Cuoc2_CTGHTTT"></div>
+    							</div>
+						</div>
+
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label class="level_2" for="Cuoc2_CHK_LK">Sử dụng lưu kho</label></div>
+							<div class="level_1 cot02a"><input type="checkbox" name="Cuoc2_CHK_LK" value="Cuoc2_CHK_LK"  id="Group_VC_DC_2_3c" onchange='DisplayChild(this);'></div>
+    						</div>
+
+						<div id="Group_VC_DC_2_3">
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc2_TGLK"  class="level_3">Thời gian lưu kho: (ngày)</label></div>
+								<div class="cot02"><input name="Cuoc2_TGLK" id="Cuoc2_TGLK"></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc2_CKTGLK"  class="level_3">Chi phí khoảng: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc2_CKTGLK" id="Cuoc2_CKTGLK" disabled></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc2_CTGLK"  class="level_3">Chi phí lưu kho: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc2_CTGLK" id="Cuoc2_CTGLK"></div>
+    							</div>
+						</div>
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label for="Cuoc2_CQD"  class="level_2">Cước quy định: (đ)</label></div>
+							<div class="cot02"><input name="Cuoc2_CQD" id="Cuoc2_CQD"></div>
+    						</div>
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label for="Cuoc2_CNH"  class="level_2">Cước nhóm: (đ)</label></div>
+							<div class="cot02"><input name="Cuoc2_CNH" id="Cuoc2_CNH"></div>
+    						</div>
+					</div>
+
+					<div id="Group_VC_DC_3_0" class="flex-item-center" style="display: flex; background: #f2ccff; padding-top:1vh">
+    						<div class="level_0"><label style="background: #666699; padding:0.4vh" class="Group_tieude">Giai đoạn giao hàng</label></div>
+    					</div>
+					<div id="Group_VC_DC_3">
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label class="level_2" for="Cuoc3_CHK_TG">Sử dụng phát thoả thuận</label></div>
+							<div class="level_1 cot02a"><input type="checkbox" name="Cuoc3_CHK_TG" value="Cuoc3_CHK_TG"  id="Group_VC_DC_3_1c" onchange='DisplayChild(this);'></div>
+    						</div>
+
+						<div id="Group_VC_DC_3_1">
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc3_TGTT"  class="level_3">Giờ phát thoả thuận: (h)</label></div>
+								<div class="cot02"><input name="Cuoc3_TGTT" id="Cuoc3_TGTT"></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc3_CKTGTT"  class="level_3">Chi phí khoảng: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc3_CKTGTT" id="Cuoc3_CKTGTT" disabled></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc3_CTGTT"  class="level_3">Chi phí phát thoả thuận: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc3_CTGTT" id="Cuoc3_CTGTT"></div>
+    							</div>
+						</div>
+
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label class="level_2" for="Cuoc3_CHK_TGHT">Sử dụng phát hoả tốc</label></div>
+							<div class="level_1 cot02a"><input type="checkbox" name="Cuoc3_CHK_TGHT" value="Cuoc3_CHK_TGHT" id="Group_VC_DC_3_2c" onchange='DisplayChild(this);'></div>
+    						</div>
+						<div id="Group_VC_DC_3_2">
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc3_TGHTTT"  class="level_3">Giờ phát hoả tốc: (phút)</label></div>
+								<div class="cot02"><input name="Cuoc3_TGHTTT" id="Cuoc3_TGHTTT"></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc3_CKTGHTTT"  class="level_3">Chi phí khoảng: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc3_CKTGHTTT" id="Cuoc3_CKTGHTTT" disabled></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc3_CTGHTTT"  class="level_3">Chi phí phát hoả tốc: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc3_CTGHTTT" id="Cuoc3_CTGHTTT"></div>
+    							</div>
+						</div>
+				
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label class="level_2" for="Cuoc3_CHK_LK">Sử dụng lưu kho</label></div>
+							<div class="level_1 cot02a"><input type="checkbox" name="Cuoc3_CHK_LK" value="Cuoc3_CHK_LK" id="Group_VC_DC_3_3c" onchange='DisplayChild(this);'></div>
+    						</div>
+
+						<div id="Group_VC_DC_3_3">
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc3_TGLK"  class="level_3">Thời gian lưu kho: (ngày)</label></div>
+								<div class="cot02"><input name="Cuoc3_TGLK" id="Cuoc3_TGLK"></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc3_CKTGLK"  class="level_3">Chi phí khoảng: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc3_CKTGLK" id="Cuoc3_CKTGLK" disabled></div>
+    							</div>
+							<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    								<div class="level_1 cot01"><label for="Cuoc3_CTGLK"  class="level_3">Chi phí lưu kho: (đ)</label></div>
+								<div class="cot02"><input name="Cuoc3_CTGLK" id="Cuoc3_CTGLK"></div>
+    							</div>
+						</div>
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label for="Cuoc3_CQD"  class="level_2">Cước quy định: (đ)</label></div>
+							<div class="cot02"><input name="Cuoc3_CQD" id="Cuoc3_CQD"></div>
+    						</div>
+						<div class="flex-item-center" style="display: flex; background: #f2ccff">
+    							<div class="level_1 cot01"><label for="Cuoc3_CNH"  class="level_2">Cước nhóm: (đ)</label></div>
+							<div class="cot02"><input name="Cuoc3_CNH" id="Cuoc3_CNH"></div>
+    						</div>
+
+						
+					</div>
+				</div>
+				</div>
+
+
+
+				<div class="detail3" id="detail3">
+					<div class="flex-item-center" style="display: flex;">	
+						<div class="cot03">
+							<div class="khungReport">
+								<div class="khungReportChild">
+									<div class="ReportChild_1">
+										<div class="ReportChild_1_1">Công ty chuyển phát 3 nhất</div>
+										<div class="ReportChild_1_2">0938687388</div>
+										<div class="ReportChild_1_3">3IE</div>
+									</div>
+									<div class="ReportChild_2">
+										<div class="ReportChild_2_1">0938687388</div>
+										<div class="ReportChild_2_2">Công ty bán hàng xyz</div>
+									</div>
+									<div class="ReportChild_3">
+										<div class="ReportChild_3_1">Quốc gia</div>
+										<div class="ReportChild_3_2">Tỉnh - Thành</div>
+									</div>
+									<div class="ReportChild_4">
+										<div class="ReportChild_4_1">Thành - Quận - Huyện - Thị xã</div>
+										<div class="ReportChild_4_2">Phường - Xã - Thị trấn</div>
+									</div>
+									<div class="ReportChild_5">
+										<div class="ReportChild_5_1">Người mua hàng xyz</div>
+										<div class="ReportChild_5_2">0938687388</div>
+									</div>
+									<div class="ReportChild_6">
+										<div class="ReportChild_6_1">Quốc gia</div>
+										<div class="ReportChild_6_2">Tỉnh - Thành</div>
+									</div>
+									<div class="ReportChild_7">
+										<div class="ReportChild_7_1">Thành - Quận - Huyện - Thị xã</div>
+										<div class="ReportChild_7_2">Phường - Xã - Thị trấn</div>
+									</div>
+									<div class="ReportChild_8">
+										<div class="ReportChild_8_1">Số nhà</div>
+										<div class="ReportChild_8_2">Tên đường</div>
+									</div>
+									<div class="ReportChild_9">
+										<div class="ReportChild_9_1">Ví dụ: Phòng 203 - Chung cư Nguyễn Văn Trỗi</div>
+									</div>
+									<div class="ReportChild_10">
+										<div class="ReportChild_10_1"><div>*DH20220114140000123*</div></div>
+									</div>
+									<div class="ReportChild_11">
+										<div class="ReportChild_11_1">
+											<img class = "col_5_1_1_1_img" 
+            											src="https://api.qrserver.com/v1/create-qr-code/?data=DH20220114140000123&amp;size=100x100" 
+            											alt="" 
+            											title="Mã vận đơn" />
+										</div>
+										<div class="ReportChild_11_2">
+											<div class="ReportChild_11_2_1">
+												<div class="ReportChild_11_2_1_1">DH20220114140000123</div>
+											</div>
+											<div class="ReportChild_11_2_2">
+												<div class="ReportChild_11_2_2_1">Sản phẩm gội đầu chất lượng cực kỳ cao cấp, tự nhiên giá rẻ đặc biệt</div>
+											</div>
+											<div class="ReportChild_11_2_3">
+												<div class="ReportChild_11_2_3_1">Kiện 1/3</div>
+												<div class="ReportChild_11_2_3_2">10kg</div>
+												<div class="ReportChild_11_2_3_3">Hoả tốc</div>
+											</div>
+										</div>
+									</div>
+									<div class="ReportChild_12">
+										<div class="ReportChild_12_1">COD/VC/TC (vnđ)</div>
+										<div class="ReportChild_12_2">100.000.000</div>
+										<div class="ReportChild_12_3">100.000.000</div>
+										<div class="ReportChild_12_4">200.000.000</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+
+        		</div>
+			
+			
+  		</div>
+
+	</div>
+</div>
+
+<script>
+        function EID(NameID) {return document.getElementById(NameID);}
+        
+        var root = document.querySelector(':root');
+
+	function bindEvent(element, eventName, eventHandler) {
+            if (element.addEventListener){
+                element.addEventListener(eventName, eventHandler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, eventHandler);
+            }
+        }
+
+	//DISABLE RIGHT-CLICK
+        window.addEventListener("contextmenu", function(e){
+            e.preventDefault();
+        }, false);
+
+        //DISABLE “VIEW SOURCE” SHORTCUT KEY
+ 
+        document.addEventListener("keydown", function(e){
+        // USE THIS TO DISABLE CONTROL AND ALL FUNCTION KEYS
+        // if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+        // THIS WILL ONLY DISABLE CONTROL AND F12
+            if (e.ctrlKey || e.keyCode==123) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
+        });
+
+
+        function preventPullToRefresh(element) {
+           var prevent = false;
+           document.querySelector(element).addEventListener('touchstart', function(e){
+              if (e.touches.length !== 1) { 
+                 return; 
+              }
+                
+              var scrollY = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+              prevent = (scrollY === 0);
+		   });
+
+		   document.querySelector(element).addEventListener('touchmove', function(e){
+              if (prevent) {
+                 prevent = false;
+                 e.preventDefault();
+              }
+		   });
+        }
+
+      document.addEventListener("touchstart", function(e){
+         if(e.touches.length > 1){
+            //the event is multi-touch
+            //you can then prevent the behavior
+            e.preventDefault();
+         } 
+      },{passive: false});
+  
+      preventPullToRefresh('html');
+
+	window.addEventListener('resize', () => {
+         // We execute the same script as before
+         AutoResize();
+	
+
+
+      });
+	
+	
+AutoResize();
+	
+	function AutoResize() {
+		var h = window.innerHeight;
+	 	var w = window.innerWidth;
+		
+var arr = ['--x-flex-direction','--x-display-ads','--x-font-size','--font_size_IconP0'];
+			var x =['row','flex','1em','1em'];
+			
+			if (h>w) {
+				//alert(2);
+				x[0] = 'column';
+           			x[1] = 'none';
+           			x[2] = '3.8vw';
+				x[3] = '4vw';
+			} 
+		
+			for (i=0;i<x.length;i++) {
+				root.style.setProperty(arr[i], x[i]);
+			}
+
+		var te = EID('detail2').offsetTop;		
+		EID('detail2').style.height = (h - te-10) + "px";
+		//alert(1);
+		
+	}
+
+	
+	bindEvent(EID('Item2_3'), 'click', function (e) {
+	    HideToolbox1();
+        });
+	bindEvent(EID('Item3_1'), 'click', function (e) {
+	    HideToolbox1();
+        });
+	
+	function HideToolbox1() {
+	    var hide = root.style.getPropertyValue('--display_Item3');
+	    var hide1 = (hide=='flex') ? 'none' : 'flex';
+	    var hide2 = (hide=='flex') ? 'flex' : 'none';
+            var hide3 = (hide=='flex') ? 'none' : 'block';
+            var hide4 = (hide=='flex') ? 'block' : 'none';
+	    root.style.setProperty('--display_Item3', hide1);
+	    root.style.setProperty('--display_Item2', hide2);
+
+	    root.style.setProperty('--display_detail3', hide3);
+	    root.style.setProperty('--display_detail2', hide4);
+	    root.style.setProperty('--display_detail1', hide4);
+	}
+
+	bindEvent(EID('Group_DCBH_0'), 'click', function (e) {
+	    var hide = root.style.getPropertyValue('--display_Group_DCBH');
+	    hide = (hide=='block') ? 'none' : 'block';
+	    root.style.setProperty('--display_Group_DCBH', hide);
+        }); 
+
+	bindEvent(EID('Group_DCVC_0'), 'click', function (e) {
+	    var hide = root.style.getPropertyValue('--display_Group_DCVC');
+	    hide = (hide=='block') ? 'none' : 'block';
+	    root.style.setProperty('--display_Group_DCVC', hide);
+        }); 
+
+	bindEvent(EID('Group_DCND_0'), 'click', function (e) {
+	    var hide = root.style.getPropertyValue('--display_Group_DCND');
+	    hide = (hide=='block') ? 'none' : 'block';
+	    root.style.setProperty('--display_Group_DCND', hide);
+        }); 
+
+
+	bindEvent(EID('Group_VC_DC_0'), 'click', function (e) {
+	    var hide = root.style.getPropertyValue('--display_Group_VC_DC');
+	    hide = (hide=='block') ? 'none' : 'block';
+	    root.style.setProperty('--display_Group_VC_DC', hide);
+        });
+
+	bindEvent(EID('Group_VC_DC_1_0'), 'click', function (e) {
+            //EID('Group_VC_DC_1').style.display = (EID('Group_VC_DC_1').style.display=='block') ? 'none' : 'block';
+	    var hide = root.style.getPropertyValue('--display_Group_VC_DC_1');
+	    hide = (hide=='block') ? 'none' : 'block';
+	    root.style.setProperty('--display_Group_VC_DC_1', hide);
+        });
+
+	bindEvent(EID('Group_VC_DC_2_0'), 'click', function (e) {
+            //EID('Group_VC_DC_2').style.display = (EID('Group_VC_DC_2').style.display=='block') ? 'none' : 'block';
+	    var hide = root.style.getPropertyValue('--display_Group_VC_DC_2');
+	    hide = (hide=='block') ? 'none' : 'block';
+	    root.style.setProperty('--display_Group_VC_DC_2', hide);
+        });
+
+	bindEvent(EID('Group_VC_DC_3_0'), 'click', function (e) {
+            //EID('Group_VC_DC_3').style.display = (EID('Group_VC_DC_3').style.display=='block') ? 'none' : 'block';
+            var hide = root.style.getPropertyValue('--display_Group_VC_DC_3');
+	    hide = (hide=='block') ? 'none' : 'block';
+	    root.style.setProperty('--display_Group_VC_DC_3', hide);
+        });
+
+	function DisplayChild(e) {
+		var id = e.id;
+                id = '--display_' + id.substring(0,id.length-1);
+                var hide = (e.checked == true) ? 'block' : 'none';
+		root.style.setProperty(id, hide);
+
+	}
+
+</script>
+
+
+</body>
+</html>
+
+
