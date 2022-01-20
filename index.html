@@ -440,10 +440,16 @@ body {
 			slag = json.records.map(doc => Object.values(doc));
 			//alert(slag[0][0]);
 			//var ifr = document.getElementById("myFrame");
-			//ifr.contentWindow.location.replace(slag[0][0] + str);
-			str = slag[0][1];
-			arr = str.split("][");
-			dangnhap = (arr[3]=="chưa đăng nhập") ? false : true;
+			
+			//str = slag[0][1];
+			//arr = str.split("][");
+			//dangnhap = (arr[3]=="chưa đăng nhập") ? false : true;
+			if (arr[3]=="chưa đăng nhập") {
+				dangnhap = false;
+			} else {
+				dangnhap = true;
+				EID("iFr_IconP02").contentWindow.location.replace(slag[0][0] + "&action=Tao_DH");
+			}
     		});
 		
 	});
