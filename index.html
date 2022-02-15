@@ -39,7 +39,7 @@
 </head>
 <body>
 <div id="Gioithieu">
-	<div>Thu</div>
+	<div id='chaomung'>Chào mừng tất cả các bạn đã đến website chuyển phát của chúng tôi</div>
     <div id="Run">Tới chương trình</div>
 </div>
 <div id="Quang"></div>
@@ -55,6 +55,7 @@
   		let promise = new Promise((resolve, reject) => {
     		setTimeout(function(){
 				var url = GetLink();
+                //alert(url);
 				window.slag;
         
         		$.getJSON(url, function (json) {
@@ -96,9 +97,14 @@
     		}
 		var str = (keyAll!="") ? "&" + keyAll + "=" + valueAll : "";
 
-		//var url = script_url+"?host=" + window.location.href + str;
-		
-        return script_url+"?host=" + "https://express3nhat.github.io/AIO/" + str;
+		var str1 = window.location.href;
+        //var str1 = 'https://express3nhat.github.io/AIO/';
+        var arrstr1 = str1.split('?');
+        str1 = (arrstr1.length==1) ? arrstr1[0] + '&Pr=Pr01': arrstr1[0] + '&' + arrstr1[1];
+        //var url = script_url+"?host=" + window.location.href + str;
+
+        //return script_url+"?host=" + "https://express3nhat.github.io/AIO/" + str;
+        return script_url+"?host=" + str1 + str;
 }
 
 	
