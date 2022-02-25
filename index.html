@@ -65,9 +65,10 @@
 	
 	window.addEventListener ("message", OnMessage, false);
 	function OnMessage (event) {
-		var x = (Message_variable == "") ? "" : '][' + Message_variable;
-		window[Message_function](event.data + x);
-		//alert(event.data);
+		if (Message_function != "") {
+			var x = (Message_variable == "") ? "" : '][' + Message_variable;
+			window[Message_function](event.data + x);
+		}
 	}
 	
 	window.addEventListener('DOMContentLoaded', (event) => {
