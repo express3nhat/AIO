@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, height=device-height, maximum-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+
+<style>
+
+
+</style>
+</head>
+<body>
+
+<form id="form">
+  <input name="file" id="uploadfile" type="file" />
+  <input id="submit" type="submit" />
+</form>
+<div id="test">quang</div>
+
+<script>
+	const form = document.getElementById("form");
+  	form.addEventListener("submit", (e) => {
+    		e.preventDefault();
+    		const file = form.file.files[0];
+    		const fr = new FileReader();
+    		fr.readAsArrayBuffer(file);
+    		
+
+		fr.onload = (f) => {
+      		const url = "https://script.google.com/macros/s/AKfycbysTcM4Ay778W6H_DG7Rqjy-Bd4fAbnkzmNf578i2MAtUe7sPc/exec"; // Please set the URL of Web Apps.
+			
+      		const qs = new URLSearchParams({
+        			filename: file.name,
+        			mimeType: file.type,
+      		});
+      		fetch(`${url}?${qs}`, {
+        			method: "POST",
+        			body: JSON.stringify([...new Int8Array(f.target.result)]),
+      		})
+        			.then((res) => res.json())
+        			.then(console.log)
+        			.catch(console.log);
+			
+	
+    		};
+
+  	});
+
+/*
+	var logBackup = console.log;
+	var logMessages = [];
+
+	console.log = function() {
+    		logMessages.push.apply(logMessages, arguments);
+    		logBackup.apply(console, arguments);
+		document.getElementById("test").innerHTML = console.toString();
+	};
+*/
+
+console.log = function(msg){
+    	const obj = JSON.stringify(msg);
+	document.getElementById("test").innerHTML = obj;
+}
+
+</script>
+
+</body>
+</html>
