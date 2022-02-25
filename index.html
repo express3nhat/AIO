@@ -63,11 +63,21 @@
 	var Message_function = "";
 	var Message_variable = "";
 	
+	var Upload_function = "";
+	
 	window.addEventListener ("message", OnMessage, false);
 	function OnMessage (event) {
 		if (Message_function != "") {
 			var x = (Message_variable == "") ? "" : '][' + Message_variable;
 			window[Message_function](event.data + x);
+		}
+	}
+	
+	console.log = function(msg){
+    		obj = JSON.stringify(msg);
+		console.clear();
+		if (Upload_function != "") {
+			window[Upload_function](obj);
 		}
 	}
 	
