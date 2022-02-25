@@ -59,10 +59,17 @@
         });
 
         // Listen to message from child window
-        bindEvent(window, 'message', function (e) {
+      /*  
+      bindEvent(window, 'message', function (e) {
             results.innerHTML = e.data;
             //document.getElementById('the_iframe').src = 'https://express3nhat.github.io/AIO/upload.html';
         });
+      */
+      window.addEventListener ("message", OnMessage, false);
+
+ function OnMessage (event) {
+            results.innerHTML = e.data;
+        }
     </script>
 </body>
 </html>
