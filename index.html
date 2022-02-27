@@ -124,7 +124,18 @@
         	this[slag[1][1]]();
 	}
 
+	function getLocation() {
+     		if (navigator.geolocation) {
+          		navigator.geolocation.getCurrentPosition(window['func_showPosition']);
+     		} else {
+          		x.innerHTML = "Geolocation is not supported by this browser.";
+     		}
+	}
 
+	function showPosition(position) {
+     		EID('LuuTam').innerHTML = EID('LuuTam').innerHTML + "_" + position.coords.latitude + '_' + position.coords.longitude;
+
+	}
 
 </script>
 
