@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, height=device-height, maximum-scale=1.0, user-scalable=no">
+<meta charset="utf-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<style>
+:root {
+	--kcn: 0.5%;
+	--kcd: 0.5%;
+	--height_header: 10vh;
+}
+
+* {touch-action: manipulation;}
+
+* {box-sizing: border-box;}
+
+html, body {
+            /*font-family: Arial;*/
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            overscroll-behavior-y: contain; 
+         }
+
+body {
+            
+	
+	/*overflow: hidden;*/
+    
+            /* Không cho bôi đen lựa chọn chữ */
+            -webkit-touch-callout: none; /* iOS Safari */
+               -webkit-user-select: none; /* Safari */
+                  -khtml-user-select: none; /* Konqueror HTML */
+                     -moz-user-select: none; /* Firefox */
+                        -ms-user-select: none; /* Internet Explorer/Edge */
+                           user-select: none; /* Non-prefixed version, currently
+                                               supported by Chrome and Opera */
+         }
+
+	#Quang {
+        position: absolute;
+        /*border: solid;*/
+        width: 100%;
+        height: 100vh;
+        left: 0px;
+        top: 0px;
+        background: white; 
+    }
+    
+
+	html, body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        overscroll-behavior-y: contain; 
+    }
+	
+
+	.header {
+		overflow: hidden;
+height: var(--height_header);
+  width: 100%;
+	text-align: center;
+	}
+
+
+	.imgLogo {
+		display: block;
+    height: 100%;
+    width: auto;
+margin-left:auto;
+margin-right:auto;
+	}
+
+.imgNormal {
+	display: block;
+	width: 90%;
+	height: auto;
+	margin-left:auto;
+margin-right:auto;
+}
+
+.noidungbody {
+	height: calc(100vh - var(--height_header));
+	overflow: auto;
+}
+
+
+
+.khung {
+	width: 100%;
+	background: white;
+}
+
+.Cokhung {
+	padding: 5px; 
+	/*margin:var(--kcd) 0.5% var(--kcd) 0.5%;*/
+	border-radius: 1mm; 
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+	
+}
+
+.KhongCokhung {
+	padding: 5px; 
+	/*margin:var(--kcd) 0.5% var(--kcd) 0.5%;*/
+	border-radius: 1mm; 
+	
+}
+
+.Khung_sticky {
+	position: -webkit-sticky;
+  	position: sticky;
+  	top: 0;
+
+	
+}
+
+.Tieude, .Noidung {text-align: justify; text-justify: inter-word; line-height: 1.5}
+
+
+
+</style>
+</head>
+<body>
+
+<div id="Quang">
+	<div id='header' class='header'></div>
+	<div id='noidungbody' class='noidungbody'>
+	
+	</div>
+</div>
+
+<script>
+	function EID(NameID) {return document.getElementById(NameID);}
+	
+	String.prototype.replaceAll = function(str1, str2, ignore) 
+	{
+    		return this.replace(new RegExp(str1.replace(/([\/\,\!\\\^\$\{\}\[\]\(\)\.\*\+\?\|\<\>\-\&])/g,"\\$&"),(ignore?"gi":"g")),(typeof(str2)=="string")?str2.replace(/\$/g,"$$$$"):str2);
+	}
+	var root = document.querySelector(':root');
+    
+    window.addEventListener('DOMContentLoaded', (event) => {
+    	RunFirst();
+	});
+    
+    async function RunFirst() {
+  		let promise = new Promise((resolve, reject) => {
+    		setTimeout(function(){
+				var url = 'https://script.google.com/macros/s/AKfycbywh2V3CFEo4woYo_PeRkPv5P8hswTi--6wwRVN/exec';
+				window.slag;
+        
+        		$.getJSON(url, function (json) {
+					resolve("done!");
+            
+            		slag = json.records.map(doc => Object.values(doc));
+
+
+            	});
+    		},5);
+  		});
+
+  		let result = await promise; 
+
+  		if (result=="done!")
+  			RunAfter();
+	}
+
+	
+
+	
+
+    function RunAfter() {
+        //alert(slag[6]);
+	  //this[slag[1][1]] = new Function('return ' + slag[1][3])();
+        //this[slag[1][1]]();
+	
+	
+	for (i=3; i<slag.length; i++) {
+		if (slag[i][0] == '-1') {
+			root.style.setProperty(slag[i][3], slag[i][8]);
+			continue;
+		}
+
+		if (slag[i][0] == '0') {
+			if (slag[i][1] == 'Hình') {
+				var ele = document.createElement('img');
+	  			ele.setAttribute('src', slag[i][3]);
+				ele.setAttribute('class', 'imgLogo');
+	  			ele.setAttribute('alt', 'logo 3 nhat express');
+        			EID('header').appendChild(ele);
+			}
+		} else {
+			//alert(i);
+			//if (slag[i][1] =='Chữ') {
+				if (slag[i][9] != '') {
+					var str = slag[i][9];
+					var str1 = slag[i][10];
+					str1 = (str1!='') ? str1 : 'black';
+					str1 = 'color: ' + str1;
+
+					var str2 = slag[i][11];
+					var arr2 = str2.split('][');
+					arr2[0] = arr2[0].toString().substring(1,arr2[0].toString().length);
+					arr2[1] = arr2[1].toString().substring(0,arr2[1].toString().length-1);
+					arr2[1] = (arr2[1]=='')? 'normal' : arr2[1];
+					str2 = 'font-weight: ' + arr2[0] + '; ' + 'font-style: ' + arr2[1];
+
+					str1 = "<span " + "style = '" + str1 + "; " + str2 + "'>" + str + "</span>";
+				
+					str2 = slag[i][3];
+					//str = str2.replace(str,str1);
+
+					str = str2.replaceAll(str,str1);
+					//alert(str);
+				} else {
+					str = slag[i][3];
+				}
+
+				//str1 = (slag[i][4] == 'Có') ? 'Cokhung' : 'KhongCokhung';
+				str1 = slag[i][2]; // + ' ' + str1;
+
+				str2 = slag[i][7];
+				arr1 = str2.split('][');
+				str2 = arr1[0].toString().substring(1,arr1[0].toString().length);
+				str2 = 'font-weight: ' + str2 + ';';
+
+				str3 = arr1[1].toString().substring(0,arr1[1].toString().length-1);
+				str3 = (str3 == '') ? 'normal' : str3;
+				str3 = 'font-style: ' + str3 + ';';
+					
+				str2 = str2 + ' ' + str3;
+					
+				str3 = slag[i][5];
+				str3 = (str3 == '') ? 'white' : str3;
+				str3 = 'background: ' + str3 + ';';
+
+				str2 = str2 + ' ' + str3;
+					
+				str3 = slag[i][6];
+				str3 = (str3 == '') ? 'back' : str3;
+				str3 = 'color: ' + str3 + ';';
+
+				str2 = str2 + ' ' + str3;
+					
+				str3 = (slag[i][2]=='Tieude') ? 'Khung_sticky ' : '';
+					
+				str4 = (slag[i][4] == 'Có') ? 'Cokhung' : 'KhongCokhung';
+
+				str5 = slag[i][0];
+				arr1 = str5.split('_');
+				var str6 = (arr1.length == 1) ? 1 : 3*arr1.length;
+				
+				str5 = ' margin: calc(' + '1' + '*var(--kcd)) calc(' + '1' + '*var(--kcn)) calc(' + '1' + '*var(--kcd)) calc(' + str6 + '*var(--kcn));';
+
+				var ele = document.createElement('div');
+	  			ele.setAttribute('class', str3 + str4);
+	  			ele.setAttribute('style', str2 + str5);
+        			EID('noidungbody').appendChild(ele);
+				
+				if (slag[i][1] =='Chữ') {
+					var ele1 = document.createElement('div');
+					ele1.setAttribute('id', slag[i][0]);
+					ele1.setAttribute('class', str1);
+
+					ele1.innerHTML = str;
+					ele.appendChild(ele1);
+
+               			var relFontsize = ele1.offsetWidth*slag[i][8];
+               			ele1.style.fontSize = relFontsize+'px';
+				}
+				
+				if (slag[i][1] =='Hình') {	
+					var ele1 = document.createElement('img');
+	  				ele1.setAttribute('src', slag[i][3]);
+					ele1.setAttribute('class', 'imgNormal');
+	  				ele1.setAttribute('alt', '');
+        				ele.appendChild(ele1);
+				}	
+
+			//} else { //Hình
+			//		alert(slag[i][0]);
+
+			//}
+				
+			
+
+		}
+	}
+
+    }
+
+	function bindEvent(element, eventName, eventHandler) {
+            if (element.addEventListener){
+                element.addEventListener(eventName, eventHandler, false);
+            } else if (element.attachEvent) {
+                element.attachEvent('on' + eventName, eventHandler);
+            }
+        }
+
+	//DISABLE RIGHT-CLICK
+        window.addEventListener("contextmenu", function(e){
+            e.preventDefault();
+        }, false);
+
+        //DISABLE “VIEW SOURCE” SHORTCUT KEY
+ 
+        window.addEventListener("keydown", function(e){
+        // USE THIS TO DISABLE CONTROL AND ALL FUNCTION KEYS
+        // if (e.ctrlKey || (e.keyCode>=112 && e.keyCode<=123)) {
+        // THIS WILL ONLY DISABLE CONTROL AND F12
+            if (e.ctrlKey || e.keyCode==123) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
+        });
+
+
+        function preventPullToRefresh(element) {
+           var prevent = false;
+           document.querySelector(element).addEventListener('touchstart', function(e){
+              if (e.touches.length !== 1) { 
+                 return; 
+              }
+                
+              var scrollY = window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop;
+              prevent = (scrollY === 0);
+		   });
+
+		   document.querySelector(element).addEventListener('touchmove', function(e){
+              if (prevent) {
+                 prevent = false;
+                 e.preventDefault();
+              }
+		   });
+        }
+
+      document.addEventListener("touchstart", function(e){
+         if(e.touches.length > 1){
+            //the event is multi-touch
+            //you can then prevent the behavior
+            e.preventDefault();
+         } 
+      },{passive: false});
+  
+      preventPullToRefresh('html');
+	
+	var Windows_current="BEGIN";
+
+	window.addEventListener('resize', () => {
+         // We execute the same script as before
+
+	AutoResize();
+	
+
+
+      });
+	
+	AutoResize();
+	
+	function AutoResize() {
+		var len = EID('noidungbody').children.length;
+          	for(var i = 0; i < len; i++) {
+               var ele = EID('noidungbody').children[i].children[0];
+			var relFontsize = ele.offsetWidth*slag[i+7][8];
+               ele.style.fontSize = relFontsize+'px';
+		}
+
+
+		/*
+			var h = window.innerHeight;
+	 		var w = window.innerWidth;
+	
+         		//document.documentElement.style.setProperty('--vh', `${vh}px`);
+			var x1, x2, x3;
+			var arr = ['--x-flex-direction','--x-display-ads','--x-font-size','--font_size_IconP0','--font_size_IconP1','--width_IconP','--width_IconP_Khung','--font_size_IconP2']
+			var x =['row','flex','1.2vw','1.2vw','2.6vw','25%','80%','1vw'];
+		
+			if (h>w) {
+				x[0] = 'column';
+           			x[1] = 'none';
+           			x[2] = '3vw';
+				x[3] = '4vw';
+				x[4] = '15vw';
+				x[5] = '50%';
+				x[6] = '80%';
+				x[7] = '6vw';
+			} 
+		
+			for (i=0;i<x.length;i++) {
+				root.style.setProperty(arr[i], x[i]);
+			}
+
+		
+
+
+
+			var te = EID('container_data_1').offsetTop;
+			//var wi = EID('container_data_1').offsetWidth;
+
+
+
+                	var he = EID('header').offsetHeight;	
+
+			root.style.setProperty("--height_detail", (h - te -2*he/5) + "px");
+			root.style.setProperty("--height_iFr_IconP", (h - te - 2*he/5) + "px");
+			//root.style.setProperty("--width_iFr_IconP", (wi-12) + "px");
+
+		*/
+	}
+
+</script>
+
+</body>
+</html>
+
+
+
+
