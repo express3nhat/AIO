@@ -116,7 +116,7 @@ margin-right:auto;
 .Cokhung {
 	padding: 5px; 
 	/*margin:var(--kcd) 0.5% var(--kcd) 0.5%;*/
-	border-radius: 1mm; 
+	border-radius: 2vw; 
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
 
 
@@ -200,7 +200,7 @@ margin-right:auto;
 
 	
 
-	
+	var dongbatdau;
 
     function RunAfter() {
         //alert(slag[6]);
@@ -210,12 +210,20 @@ margin-right:auto;
 	
     
 	for (i=3; i<slag.length; i++) {
-		if (slag[i][0] == '-1') {
+		if (slag[i][0] == '-2') {
+        	if (slag[i][7]!='') addStylesheetURL(slag[i][7]);
+            var s = slag[i][8];
+            s = s.replaceAll("'","");
+            root.style.setProperty(slag[i][3], s);
+        }
+        
+        if (slag[i][0] == '-1') {
 			root.style.setProperty(slag[i][3], slag[i][8]);
 			continue;
 		}
 
 		if (slag[i][0] == '0') {
+        	dongbatdau = i;
 			if (slag[i][1] == 'Hình') {
 				var ele = document.createElement('img');
 	  			ele.setAttribute('src', slag[i][3]);
@@ -253,17 +261,14 @@ margin-right:auto;
                     /*
                     str1 = (str1!='') ? str1 : 'black';
 					str1 = 'color: ' + str1;
-
 					
 					var arr2 = str2.split('][');
 					
 					str2 = 'font-weight: ' + arr2[0] + '; ' + 'font-style: ' + arr2[1] + ';' + 'text-decoration: ' + arr2[2] + ';';
-
 					str1 = "<span " + "style = '" + str1 + "; " + str2 + "'>" + str + "</span>";
 				
 					str2 = slag[i][3];
 					//str = str2.replace(str,str1);
-
 					str = str2.replaceAll(str,str1);
 					//alert(str);
                     */
@@ -283,11 +288,13 @@ margin-right:auto;
 				//str3 = arr1[1].toString().substring(0,arr1[1].toString().length-1);
 				//str3 = (str3 == '') ? 'normal' : str3;
 				//str3 = 'font-style: ' + str3 + ';';
-                str3 = 'font-style: ' + arr1[1] + ';';
-					
+                str3 = 'font-style: ' + arr1[1] + ';';	
 				str2 = str2 + ' ' + str3;
                 
                 str3 = 'text-decoration: ' + arr1[2] + ';';
+                str2 = str2 + ' ' + str3;
+                
+                str3 = 'font-family: ' + 'var(' + arr1[3] + ')' + ';';
                 str2 = str2 + ' ' + str3;
 					
 				if (slag[i][4] == 'Có') {
@@ -330,6 +337,8 @@ margin-right:auto;
 
                			var relFontsize = ele1.offsetWidth*slag[i][8];
                			ele1.style.fontSize = relFontsize+'px';
+                        
+                        //ele1.style.fontFamily = "'Great Vibes', cursive";
 				}
 				
 				if (slag[i][1] =='Hình') {	
@@ -350,6 +359,8 @@ margin-right:auto;
 
 		}
 	}
+
+
 
     }
 
@@ -425,7 +436,7 @@ margin-right:auto;
 		var len = EID('noidungbody').children.length;
           	for(var i = 0; i < len; i++) {
                var ele = EID('noidungbody').children[i].children[0];
-			var relFontsize = ele.offsetWidth*slag[i+11][8];
+			var relFontsize = ele.offsetWidth*slag[i+dongbatdau+1][8];
                ele.style.fontSize = relFontsize+'px';
 		}
 
@@ -462,6 +473,16 @@ margin-right:auto;
 			//root.style.setProperty("--width_iFr_IconP", (wi-12) + "px");
 		*/
 	}
+    
+    function addStylesheetURL(url) {
+  var link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = url;
+  document.getElementsByTagName('head')[0].appendChild(link);
+}
+
+// Load Tangerine & Cantarell
+
 
 </script>
 
