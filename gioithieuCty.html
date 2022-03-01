@@ -253,6 +253,10 @@ margin-right:auto;
 						str1 = 'color: ' + arrCol1[j];
                         var arr2 = arrCol2[j].toString().split('][');
                         str2 = 'font-weight: ' + arr2[0] + '; ' + 'font-style: ' + arr2[1] + ';' + 'text-decoration: ' + arr2[2] + ';';
+                        
+                        if (arr2.length=4) {
+                        	str2 = str2 + ' font-family: ' + 'var(' + arr2[3] + ');'
+                        }
                         str1 = "<span " + "style = '" + str1 + "; " + str2 + "'>" + arrCol[j] + "</span>";
                         str0 = str0.replaceAll(arrCol[j],str1);
 
@@ -294,10 +298,8 @@ margin-right:auto;
                 str3 = 'text-decoration: ' + arr1[2] + ';';
                 str2 = str2 + ' ' + str3;
                 
-		if (arr1.length==4) {	
-                	str3 = 'font-family: ' + 'var(' + arr1[3] + ')' + ';';
-                	str2 = str2 + ' ' + str3;
-		}
+                str3 = 'font-family: ' + 'var(' + arr1[3] + ')' + ';';
+                str2 = str2 + ' ' + str3;
 					
 				if (slag[i][4] == 'Có') {
                 	str3 = slag[i][5];
