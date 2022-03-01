@@ -97,6 +97,8 @@ margin-right:auto;
 	/*margin:var(--kcd) 0.5% var(--kcd) 0.5%;*/
 	border-radius: 1mm; 
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+
+
 	
 }
 
@@ -104,6 +106,8 @@ margin-right:auto;
 	padding: 5px; 
 	/*margin:var(--kcd) 0.5% var(--kcd) 0.5%;*/
 	/*border-radius: 1mm; */
+
+
 	
 }
 
@@ -111,6 +115,8 @@ margin-right:auto;
 	position: -webkit-sticky;
   	position: sticky;
   	top: 0;
+    width: 100%;
+	background: white;
 
 	
 }
@@ -283,15 +289,15 @@ margin-right:auto;
 				str5 = ' margin: calc(' + '1' + '*var(--kcd)) calc(' + '1' + '*var(--kcn)) calc(' + '1' + '*var(--kcd)) calc(' + str6 + '*var(--kcn));';
 
 				var ele = document.createElement('div');
-	  			ele.setAttribute('class', str3 + str4);
-	  			ele.setAttribute('style', str2 + str5);
+	  			ele.setAttribute('class', str3 + 'khung');
+	  			//ele.setAttribute('style', str2 + str5);
         			EID('noidungbody').appendChild(ele);
 				
 				if (slag[i][1] =='Chữ') {
 					var ele1 = document.createElement('div');
 					ele1.setAttribute('id', slag[i][0]);
-					ele1.setAttribute('class', str1);
-
+					ele1.setAttribute('class', str1 + ' ' + str4);
+					ele1.setAttribute('style', str2 + str5);
 					ele1.innerHTML = str;
 					ele.appendChild(ele1);
 
