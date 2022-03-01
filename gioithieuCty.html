@@ -103,7 +103,7 @@ margin-right:auto;
 .KhongCokhung {
 	padding: 5px; 
 	/*margin:var(--kcd) 0.5% var(--kcd) 0.5%;*/
-	border-radius: 1mm; 
+	/*border-radius: 1mm; */
 	
 }
 
@@ -257,11 +257,12 @@ margin-right:auto;
                 str3 = 'text-decoration: ' + arr1[2] + ';';
                 str2 = str2 + ' ' + str3;
 					
-				str3 = slag[i][5];
-				str3 = (str3 == '') ? 'white' : str3;
-				str3 = 'background: ' + str3 + ';';
-
-				str2 = str2 + ' ' + str3;
+				if (slag[i][4] == 'Có') {
+                	str3 = slag[i][5];
+					str3 = (str3 == '') ? 'white' : str3;
+					str3 = 'background: ' + str3 + ';';
+                    str2 = str2 + ' ' + str3;
+                }
 					
 				str3 = slag[i][6];
 				str3 = (str3 == '') ? 'back' : str3;
@@ -433,4 +434,3 @@ margin-right:auto;
 
 </body>
 </html>
-
