@@ -294,8 +294,10 @@ margin-right:auto;
                 str3 = 'text-decoration: ' + arr1[2] + ';';
                 str2 = str2 + ' ' + str3;
                 
-                str3 = 'font-family: ' + 'var(' + arr1[3] + ')' + ';';
-                str2 = str2 + ' ' + str3;
+		if (arr1.length==4) {	
+                	str3 = 'font-family: ' + 'var(' + arr1[3] + ')' + ';';
+                	str2 = str2 + ' ' + str3;
+		}
 					
 				if (slag[i][4] == 'Có') {
                 	str3 = slag[i][5];
