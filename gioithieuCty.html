@@ -195,11 +195,33 @@ margin-right:auto;
 			//if (slag[i][1] =='Chữ') {
 				if (slag[i][9] != '') {
 					var str = slag[i][9];
+                    var arrCol = str.split('||');
 					var str1 = slag[i][10];
-					str1 = (str1!='') ? str1 : 'black';
+                    var arrCol1 = str1.split('||');
+                    var str2 = slag[i][11];
+                    var arrCol2 = str2.split('||');
+                    
+					for (j=0; j<arrCol.length; j++) {
+                    	arrCol[j] = arrCol[j].toString().trim();
+                        arrCol1[j] = arrCol1[j].toString().trim();
+                        arrCol2[j] = arrCol2[j].toString().trim();
+                    }
+                    
+                    var str0 = slag[i][3];
+                    for (j=0; j<arrCol.length; j++) {
+						str1 = 'color: ' + arrCol1[j];
+                        var arr2 = arrCol2[j].toString().split('][');
+                        str2 = 'font-weight: ' + arr2[0] + '; ' + 'font-style: ' + arr2[1] + ';' + 'text-decoration: ' + arr2[2] + ';';
+                        str1 = "<span " + "style = '" + str1 + "; " + str2 + "'>" + arrCol[j] + "</span>";
+                        str0 = str0.replaceAll(arrCol[j],str1);
+
+                    }
+                    str = str0;
+                    /*
+                    str1 = (str1!='') ? str1 : 'black';
 					str1 = 'color: ' + str1;
 
-					var str2 = slag[i][11];
+					
 					var arr2 = str2.split('][');
 					
 					str2 = 'font-weight: ' + arr2[0] + '; ' + 'font-style: ' + arr2[1] + ';' + 'text-decoration: ' + arr2[2] + ';';
@@ -211,6 +233,7 @@ margin-right:auto;
 
 					str = str2.replaceAll(str,str1);
 					//alert(str);
+                    */
 				} else {
 					str = slag[i][3];
 				}
@@ -230,6 +253,9 @@ margin-right:auto;
                 str3 = 'font-style: ' + arr1[1] + ';';
 					
 				str2 = str2 + ' ' + str3;
+                
+                str3 = 'text-decoration: ' + arr1[2] + ';';
+                str2 = str2 + ' ' + str3;
 					
 				str3 = slag[i][5];
 				str3 = (str3 == '') ? 'white' : str3;
