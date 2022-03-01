@@ -10,6 +10,8 @@
 	--kcd: 0.5%;
 	--height_header: 10vh;
 	--tab: 3;
+    --LineheightTieude = 1.4em;
+    --heightTieude = 3;
 }
 
 * {touch-action: manipulation;}
@@ -123,7 +125,10 @@ margin-right:auto;
 
 .Tieude, .Noidung {text-align: justify; text-justify: inter-word; line-height: 1.5}
 
-
+.Tieude {
+	height: calc(var(--heightTieude)*var(--LineheightTieude)); 
+  	line-height: var(--LineheightTieude);
+}
 
 </style>
 </head>
