@@ -9,7 +9,7 @@
 	--kcn: 0.5%;
 	--kcd: 0.5%;
 	--height_header: 10vh;
-	
+	--tab: 3;
 }
 
 * {touch-action: manipulation;}
@@ -175,6 +175,7 @@ margin-right:auto;
         //this[slag[1][1]]();
 	
 	
+    
 	for (i=3; i<slag.length; i++) {
 		if (slag[i][0] == '-1') {
 			root.style.setProperty(slag[i][3], slag[i][8]);
@@ -187,7 +188,7 @@ margin-right:auto;
 	  			ele.setAttribute('src', slag[i][3]);
 				ele.setAttribute('class', 'imgLogo');
 	  			ele.setAttribute('alt', 'logo 3 nhat express');
-        			EID('header').appendChild(ele);
+        			EID('header').appendChild(ele);
 			}
 		} else {
 			//alert(i);
@@ -200,10 +201,8 @@ margin-right:auto;
 
 					var str2 = slag[i][11];
 					var arr2 = str2.split('][');
-					arr2[0] = arr2[0].toString().substring(1,arr2[0].toString().length);
-					arr2[1] = arr2[1].toString().substring(0,arr2[1].toString().length-1);
-					arr2[1] = (arr2[1]=='')? 'normal' : arr2[1];
-					str2 = 'font-weight: ' + arr2[0] + '; ' + 'font-style: ' + arr2[1];
+					
+					str2 = 'font-weight: ' + arr2[0] + '; ' + 'font-style: ' + arr2[1] + ';' + 'text-decoration: ' + arr2[2] + ';';
 
 					str1 = "<span " + "style = '" + str1 + "; " + str2 + "'>" + str + "</span>";
 				
@@ -221,12 +220,14 @@ margin-right:auto;
 
 				str2 = slag[i][7];
 				arr1 = str2.split('][');
-				str2 = arr1[0].toString().substring(1,arr1[0].toString().length);
-				str2 = 'font-weight: ' + str2 + ';';
+				//str2 = arr1[0].toString().substring(1,arr1[0].toString().length);
+				//str2 = 'font-weight: ' + str2 + ';';
+                str2 = 'font-weight: ' + arr1[0] + ';';
 
-				str3 = arr1[1].toString().substring(0,arr1[1].toString().length-1);
-				str3 = (str3 == '') ? 'normal' : str3;
-				str3 = 'font-style: ' + str3 + ';';
+				//str3 = arr1[1].toString().substring(0,arr1[1].toString().length-1);
+				//str3 = (str3 == '') ? 'normal' : str3;
+				//str3 = 'font-style: ' + str3 + ';';
+                str3 = 'font-style: ' + arr1[1] + ';';
 					
 				str2 = str2 + ' ' + str3;
 					
@@ -248,14 +249,16 @@ margin-right:auto;
 
 				str5 = slag[i][0];
 				arr1 = str5.split('_');
-				var str6 = (arr1.length == 1) ? 1 : 3*arr1.length;
+				var str6 = (arr1.length == 1) ? 1 : getComputedStyle(document.documentElement).getPropertyValue('--tab')*arr1.length;
+                
+                
 				
 				str5 = ' margin: calc(' + '1' + '*var(--kcd)) calc(' + '1' + '*var(--kcn)) calc(' + '1' + '*var(--kcd)) calc(' + str6 + '*var(--kcn));';
 
 				var ele = document.createElement('div');
 	  			ele.setAttribute('class', str3 + str4);
 	  			ele.setAttribute('style', str2 + str5);
-        			EID('noidungbody').appendChild(ele);
+        			EID('noidungbody').appendChild(ele);
 				
 				if (slag[i][1] =='Chữ') {
 					var ele1 = document.createElement('div');
@@ -265,8 +268,8 @@ margin-right:auto;
 					ele1.innerHTML = str;
 					ele.appendChild(ele1);
 
-               			var relFontsize = ele1.offsetWidth*slag[i][8];
-               			ele1.style.fontSize = relFontsize+'px';
+               			var relFontsize = ele1.offsetWidth*slag[i][8];
+               			ele1.style.fontSize = relFontsize+'px';
 				}
 				
 				if (slag[i][1] =='Hình') {	
@@ -274,7 +277,7 @@ margin-right:auto;
 	  				ele1.setAttribute('src', slag[i][3]);
 					ele1.setAttribute('class', 'imgNormal');
 	  				ele1.setAttribute('alt', '');
-        				ele.appendChild(ele1);
+        				ele.appendChild(ele1);
 					ele1.style.width = slag[i][8];
 				}	
 
@@ -360,10 +363,10 @@ margin-right:auto;
 	
 	function AutoResize() {
 		var len = EID('noidungbody').children.length;
-          	for(var i = 0; i < len; i++) {
-               var ele = EID('noidungbody').children[i].children[0];
+          	for(var i = 0; i < len; i++) {
+               var ele = EID('noidungbody').children[i].children[0];
 			var relFontsize = ele.offsetWidth*slag[i+7][8];
-               ele.style.fontSize = relFontsize+'px';
+               ele.style.fontSize = relFontsize+'px';
 		}
 
 
@@ -390,22 +393,13 @@ margin-right:auto;
 			for (i=0;i<x.length;i++) {
 				root.style.setProperty(arr[i], x[i]);
 			}
-
 		
-
-
-
 			var te = EID('container_data_1').offsetTop;
 			//var wi = EID('container_data_1').offsetWidth;
-
-
-
                 	var he = EID('header').offsetHeight;	
-
 			root.style.setProperty("--height_detail", (h - te -2*he/5) + "px");
 			root.style.setProperty("--height_iFr_IconP", (h - te - 2*he/5) + "px");
 			//root.style.setProperty("--width_iFr_IconP", (wi-12) + "px");
-
 		*/
 	}
 
@@ -413,7 +407,4 @@ margin-right:auto;
 
 </body>
 </html>
-
-
-
 
