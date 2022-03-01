@@ -10,8 +10,9 @@
 	--kcd: 0.5%;
 	--height_header: 10vh;
 	--tab: 3;
-    --LineheightTieude = 1.4em;
-    --heightTieude = 3;
+    --LineheightTieude: 1.4em;
+    --heightTieude: 3;
+    --color_common: #1e90ff;
 }
 
 * {touch-action: manipulation;}
@@ -28,7 +29,7 @@ html, body {
 body {
             
 	
-	/*overflow: hidden;*/
+	overflow: hidden;
     
             /* Không cho bôi đen lựa chọn chữ */
             -webkit-touch-callout: none; /* iOS Safari */
@@ -38,6 +39,8 @@ body {
                         -ms-user-select: none; /* Internet Explorer/Edge */
                            user-select: none; /* Non-prefixed version, currently
                                                supported by Chrome and Opera */
+                                               
+         
          }
 
 	#Quang {
@@ -47,7 +50,7 @@ body {
         height: 100vh;
         left: 0px;
         top: 0px;
-        background: white; 
+        background: var(--color_common);
     }
     
 
@@ -72,6 +75,11 @@ height: var(--height_header);
     width: auto;
 margin-left:auto;
 margin-right:auto;
+
+border-radius: 50%;
+border-color: red;
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 	}
 
 .imgNormal {
@@ -91,7 +99,7 @@ margin-right:auto;
 
 .khung {
 	width: 100%;
-	background: white;
+	background: var(--color_common);
     overflow: auto;
 }
 
@@ -119,12 +127,12 @@ margin-right:auto;
   	position: sticky;
   	top: 0;
     width: 100%;
-	background: white;
+	background: var(--color_common);
 
 	
 }
 
-.Tieude, .Noidung {text-align: justify; text-justify: inter-word; line-height: 1.5}
+.Tieude, .Noidung {text-align: justify; text-justify: inter-word; line-height: 1.5; background: var(--color_common);}
 
 .Tieude {
 	height: calc(var(--heightTieude)*var(--LineheightTieude)); 
@@ -136,7 +144,9 @@ margin-right:auto;
 <body>
 
 <div id="Quang">
-	<div id='header' class='header'></div>
+	<div id='header' class='header'>
+
+    </div>
 	<div id='noidungbody' class='noidungbody'>
 	
 	</div>
@@ -404,7 +414,7 @@ margin-right:auto;
 		var len = EID('noidungbody').children.length;
           	for(var i = 0; i < len; i++) {
                var ele = EID('noidungbody').children[i].children[0];
-			var relFontsize = ele.offsetWidth*slag[i+10][8];
+			var relFontsize = ele.offsetWidth*slag[i+11][8];
                ele.style.fontSize = relFontsize+'px';
 		}
 
