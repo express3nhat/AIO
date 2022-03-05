@@ -107,7 +107,7 @@
             			slag = json.records.map(doc => Object.values(doc));
 				slag.map(function(item){
     					// item chính là phần tử đang lặp
-    					return item.trim(); // giá trị trả về sẽ thay thế cho giá trị ban đầu của phần tử
+    					return item.toString().trim(); // giá trị trả về sẽ thay thế cho giá trị ban đầu của phần tử
   				});
 				
             		});
