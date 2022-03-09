@@ -41,13 +41,15 @@
     
 }
 
-         .main_loader {
-		position: absolute;
+         #container_loader {
+            position: absolute;
             top:0;
-		left: 0;
             z-index: 100;
-		display: none;
-            display: none; 
+            /*visibility:hidden;*/
+            display: none;
+         }
+
+         .main_loader {
             width: 100vw;
             height: 95vh;
             /*background: #2185C5;*/
@@ -107,9 +109,11 @@
     <div id="Run">Tới chương trình</div>
 </div>
 <div id="Quang"></div>
-<div class="main_loader" id="main_loader">
-	<div class="loader"></div>
-</div>
+<div id="container_loader">
+	 <div class="main_loader" >
+    	    <div class="loader"></div>
+	</div>
+      </div>
 
 <script>
 	function EID(NameID) {return document.getElementById(NameID);}
