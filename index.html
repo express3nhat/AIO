@@ -149,22 +149,9 @@
 			var url = (x2=='') ? GetLink() : x2;
 			window.window[x1];
 
-        		
-			$.getJSON(url, function (json) {
-				resolve("done!");
-         
-            			window[x1] = json.records.map(doc => Object.values(doc));
-				
-				window[x1].map(function mapper(s) {
-  					if (Array.isArray(s)) {
-    						return s.map(mapper);
-  					} else {
-						return s.toString().trim();
-  					}
-				});
-				
-				
-            		});
+        		Quang(resolve, url, x1);
+			
+			
 			
     		},5);
   	});
@@ -179,8 +166,22 @@
             		}
 	}
 
-	function Quang(x1) {
-		return Promise.resolve1("Hello");
+	function Quang(resolve, url, x1) {
+		$.getJSON(url, function (json) {
+				resolve("done!");
+         
+            			window[x1] = json.records.map(doc => Object.values(doc));
+				
+				window[x1].map(function mapper(s) {
+  					if (Array.isArray(s)) {
+    						return s.map(mapper);
+  					} else {
+						return s.toString().trim();
+  					}
+				});
+				
+				
+            		});
 	}
 	
 	function GetLink() {
